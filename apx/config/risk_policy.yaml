@@ -1,0 +1,73 @@
+amount_risk:
+  low_threshold: 1000.0
+  medium_threshold: 10000.0
+  high_threshold: 100000.0
+  weight: 0.25
+
+severity_risk:
+  weights:
+    LOW: 0.1
+    MEDIUM: 0.3
+    HIGH: 0.7
+    CRITICAL: 1.0
+  weight: 0.25
+
+confidence_risk:
+  high_threshold: 0.9
+  medium_threshold: 0.7
+  low_threshold: 0.5
+  weight: 0.20
+
+evidence_risk:
+  min_evidence_count: 3
+  weight: 0.15
+
+historical_risk:
+  min_success_rate: 0.8
+  weight: 0.15
+
+compound_risk_weights:
+  amount: 0.25
+  severity: 0.25
+  confidence: 0.20
+  evidence: 0.15
+  historical: 0.15
+
+amount_thresholds:
+  auto_resolve_max: 5000.0
+  review_required_min: 5000.0
+  escalate_min: 50000.0
+
+confidence_thresholds:
+  auto_resolve_min: 0.9
+  human_review_max: 0.7
+
+evidence_thresholds:
+  auto_resolve_min: 3
+  human_review_min: 1
+
+historical_success_thresholds:
+  auto_resolve_min: 0.85
+
+always_escalate_rules:
+  - exception_code: "CREDIT_ISSUE"
+    reason: "Vendor credit hold requires manual review"
+  - exception_code: "VENDOR_MISMATCH"
+    reason: "Potential fraud indicator"
+  - condition: "amount > 100000"
+    reason: "High-value invoice requires approval"
+
+auto_resolve_rules:
+  - exception_code: "DISCOUNT_ERROR"
+    max_amount: 1000.0
+    reason: "Minor discount discrepancies can be auto-corrected"
+  - exception_code: "TAX_ERROR"
+    max_amount: 500.0
+    reason: "Small tax calculation errors can be auto-corrected"
+
+tolerance:
+  amount_percentage: 0.02
+  amount_absolute: 0.01
+  tax_percentage: 0.01
+  quantity_percentage: 0.0
+  discount_percentage: 0.01
