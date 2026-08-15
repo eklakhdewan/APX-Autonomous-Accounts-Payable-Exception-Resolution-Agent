@@ -2,8 +2,39 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+import os
 import yaml
 from pydantic import BaseModel, Field, field_validator
+
+
+class RetrievalProfile(BaseModel):
+    dense_model: str
+    reranker_model: str
+    device: str
+    batch_size: int
+    max_seq_length: int
+    bm25_top_k: int
+    dense_top_k: int
+    rrf_k: int
+    rrf_constant: int
+    reranker_top_k: int
+    evidence_validity_enabled: bool
+    description: str = ""
+
+
+class AgentConfig(BaseModel):
+    max_investigation_steps: int = Field(default=10, ge=1)
+    default_llm_provider: str = Field(default="mock")
+
+
+class RetrievalConfig(BaseModel):
+    profiles: dict[str, RetrievalProfile]
+    defaults: dict[str, Any]
+
+
+class AgentSettings(BaseModel):
+    max_investigation_steps: int = Field(default=10, ge=1)
+    default_llm_provider: str = Field(default="mock")
 
 
 class AmountRiskConfig(BaseModel):
@@ -111,6 +142,8 @@ class RiskPolicy(BaseModel):
 
 class Settings(BaseModel):
     risk_policy: RiskPolicy
+    retrieval: RetrievalConfig
+    agent: AgentSettings
     data_dir: Path = Field(default=Path("apx/data/datasets"))
 
     @classmethod
@@ -120,10 +153,49 @@ class Settings(BaseModel):
             raise FileNotFoundError(f"Risk policy not found: {path}")
         with path.open("r") as f:
             raw = yaml.safe_load(f)
-        return cls(risk_policy=RiskPolicy(**raw), data_dir=Path("apx/data/datasets"))
+        
+        # Load retrieval config separately
+        retrieval_path = Path("apx/config/retrieval_profiles.yaml")
+        if retrieval_path.exists():
+            with retrieval_path.open("r") as f:
+                retrieval_raw = yaml.safe_load(f)
+        else:
+            retrieval_raw = {"profiles": {}, "defaults": {}, "agent": {}}
+        
+        # Handle the case where profiles is at top level of retrieval_profiles.yaml
+        profiles = retrieval_raw.get("profiles", retrieval_raw.get("profiles", {}))
+        defaults = retrieval_raw.get("defaults", retrieval_raw.get("defaults", {}))
+        agent_config = retrieval_raw.get("agent", retrieval_raw.get("agent", {}))
+        
+        return cls(
+            risk_policy=RiskPolicy(**raw),
+            retrieval=RetrievalConfig(profiles=profiles, defaults=defaults),
+            agent=AgentSettings(**agent_config),
+            data_dir=Path("apx/data/datasets")
+        )
 
     def get_tolerance(self) -> ToleranceConfig:
         return self.risk_policy.tolerance
+
+    def get_retrieval_profile(self, profile_name: str | None = None) -> RetrievalProfile:
+        if profile_name is None:
+            profile_name = self.retrieval.defaults.get("active_profile", "DEV")
+        profiles = self.retrieval.profiles
+        if profile_name not in profiles:
+            raise ValueError(f"Retrieval profile '{profile_name}' not found")
+        return profiles[profile_name]
+
+    def get_corpus_path(self) -> Path:
+        return Path(self.retrieval.defaults.get("corpus_path", "apx/data/datasets/evidence"))
+
+    def get_eval_path(self) -> Path:
+        return Path(self.retrieval.defaults.get("eval_path", "apx/data/datasets/eval"))
+
+    def get_index_cache_path(self) -> Path:
+        return Path(self.retrieval.defaults.get("index_cache_path", "apx/data/datasets/evidence/index"))
+
+    def get_agent_settings(self) -> AgentSettings:
+        return self.agent
 
 
 _settings: Settings | None = None

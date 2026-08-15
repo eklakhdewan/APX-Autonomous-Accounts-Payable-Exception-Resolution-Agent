@@ -1,0 +1,383 @@
+{
+  "cases": [
+    {
+      "case_id": "EVAL-001",
+      "exception_type": "AMOUNT_MISMATCH",
+      "vendor_id": "V-0001",
+      "query": "amount mismatch vendor V-0001 invoice validation price variance total variance",
+      "relevant_evidence_ids": [
+        "EV-00061"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00015",
+        "EV-00026",
+        "EV-00048",
+        "EV-00081",
+        "EV-00110",
+        "EV-00118",
+        "EV-00126",
+        "EV-00143",
+        "EV-00159",
+        "EV-00198",
+        "EV-00208",
+        "EV-00209",
+        "EV-00217",
+        "EV-00218",
+        "EV-00219"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00034",
+        "EV-00052",
+        "EV-00109",
+        "EV-00185",
+        "EV-00221",
+        "EV-00222",
+        "EV-00223",
+        "EV-00224",
+        "EV-00225",
+        "EV-00226",
+        "EV-00227",
+        "EV-00228",
+        "EV-00229",
+        "EV-00230",
+        "EV-00231",
+        "EV-00232",
+        "EV-00233",
+        "EV-00234",
+        "EV-00235"
+      ]
+    },
+    {
+      "case_id": "EVAL-002",
+      "exception_type": "GRN_MISMATCH",
+      "vendor_id": "V-0002",
+      "query": "goods receipt mismatch vendor V-0002 quantity variance receipt quantity GRN quantity",
+      "relevant_evidence_ids": [
+        "EV-00036",
+        "EV-00038",
+        "EV-00044",
+        "EV-00089",
+        "EV-00100",
+        "EV-00104"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00019",
+        "EV-00069",
+        "EV-00072",
+        "EV-00085",
+        "EV-00090",
+        "EV-00126",
+        "EV-00161",
+        "EV-00167",
+        "EV-00204",
+        "EV-00206",
+        "EV-00207",
+        "EV-00217",
+        "EV-00220",
+        "EV-00221",
+        "EV-00223"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00017",
+        "EV-00080",
+        "EV-00150"
+      ]
+    },
+    {
+      "case_id": "EVAL-003",
+      "exception_type": "VENDOR_MISMATCH",
+      "vendor_id": "V-0003",
+      "query": "vendor mismatch vendor V-0003 vendor validation supplier mismatch vendor verification",
+      "relevant_evidence_ids": [
+        "EV-00008",
+        "EV-00013",
+        "EV-00131",
+        "EV-00147",
+        "EV-00161",
+        "EV-00164",
+        "EV-00177"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00015",
+        "EV-00019",
+        "EV-00026",
+        "EV-00034",
+        "EV-00047",
+        "EV-00062",
+        "EV-00072",
+        "EV-00081",
+        "EV-00172",
+        "EV-00201",
+        "EV-00203",
+        "EV-00205",
+        "EV-00211",
+        "EV-00214",
+        "EV-00218"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00002",
+        "EV-00056",
+        "EV-00126",
+        "EV-00200"
+      ]
+    },
+    {
+      "case_id": "EVAL-004",
+      "exception_type": "TAX_ERROR",
+      "vendor_id": "V-0004",
+      "query": "tax error vendor V-0004 tax calculation tax validation tax variance tax rate",
+      "relevant_evidence_ids": [
+        "EV-00068",
+        "EV-00094",
+        "EV-00111",
+        "EV-00114",
+        "EV-00136",
+        "EV-00160"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00045",
+        "EV-00056",
+        "EV-00080",
+        "EV-00151",
+        "EV-00162",
+        "EV-00166",
+        "EV-00174",
+        "EV-00187",
+        "EV-00190",
+        "EV-00202",
+        "EV-00207",
+        "EV-00208",
+        "EV-00212",
+        "EV-00215",
+        "EV-00217"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00001",
+        "EV-00007",
+        "EV-00105",
+        "EV-00129",
+        "EV-00155",
+        "EV-00189",
+        "EV-00194"
+      ]
+    },
+    {
+      "case_id": "EVAL-005",
+      "exception_type": "CREDIT_ISSUE",
+      "vendor_id": "V-0005",
+      "query": "credit issue vendor V-0005 credit hold credit status vendor credit credit limit",
+      "relevant_evidence_ids": [
+        "EV-00115",
+        "EV-00123"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00019",
+        "EV-00043",
+        "EV-00050",
+        "EV-00116",
+        "EV-00124",
+        "EV-00125",
+        "EV-00136",
+        "EV-00183",
+        "EV-00193",
+        "EV-00203",
+        "EV-00206",
+        "EV-00208",
+        "EV-00209",
+        "EV-00213"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00064",
+        "EV-00086",
+        "EV-00097",
+        "EV-00102",
+        "EV-00121",
+        "EV-00128",
+        "EV-00138",
+        "EV-00152"
+      ]
+    },
+    {
+      "case_id": "EVAL-006",
+      "exception_type": "PO_MISMATCH",
+      "vendor_id": "V-0006",
+      "query": "purchase order mismatch vendor V-0006 PO validation PO reference purchase order number",
+      "relevant_evidence_ids": [
+        "EV-00037",
+        "EV-00065"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00009",
+        "EV-00010",
+        "EV-00018",
+        "EV-00024",
+        "EV-00044",
+        "EV-00097",
+        "EV-00112",
+        "EV-00136",
+        "EV-00152",
+        "EV-00202",
+        "EV-00204",
+        "EV-00207",
+        "EV-00213",
+        "EV-00214",
+        "EV-00217"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00029",
+        "EV-00076",
+        "EV-00083",
+        "EV-00107",
+        "EV-00130"
+      ]
+    },
+    {
+      "case_id": "EVAL-007",
+      "exception_type": "CURRENCY_MISMATCH",
+      "vendor_id": "V-0007",
+      "query": "currency mismatch vendor V-0007 currency validation foreign currency exchange rate",
+      "relevant_evidence_ids": [
+        "EV-00176"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00015",
+        "EV-00036",
+        "EV-00128",
+        "EV-00166",
+        "EV-00169",
+        "EV-00174",
+        "EV-00178",
+        "EV-00199",
+        "EV-00202",
+        "EV-00207",
+        "EV-00208",
+        "EV-00209",
+        "EV-00212",
+        "EV-00215",
+        "EV-00218"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00010",
+        "EV-00024",
+        "EV-00049",
+        "EV-00062",
+        "EV-00188"
+      ]
+    },
+    {
+      "case_id": "EVAL-008",
+      "exception_type": "LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0008",
+      "query": "line item mismatch vendor V-0008 line item variance item price item quantity PO line matching",
+      "relevant_evidence_ids": [
+        "EV-00180"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00020",
+        "EV-00026",
+        "EV-00028",
+        "EV-00031",
+        "EV-00069",
+        "EV-00091",
+        "EV-00129",
+        "EV-00132",
+        "EV-00135",
+        "EV-00206",
+        "EV-00209",
+        "EV-00211",
+        "EV-00212",
+        "EV-00214",
+        "EV-00217"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00011",
+        "EV-00033",
+        "EV-00040",
+        "EV-00041",
+        "EV-00077",
+        "EV-00095",
+        "EV-00113",
+        "EV-00186"
+      ]
+    },
+    {
+      "case_id": "EVAL-009",
+      "exception_type": "DISCOUNT_ERROR",
+      "vendor_id": "V-0009",
+      "query": "discount error vendor V-0009 discount validation early payment discount discount terms",
+      "relevant_evidence_ids": [
+        "EV-00035",
+        "EV-00069",
+        "EV-00143",
+        "EV-00148",
+        "EV-00172"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00004",
+        "EV-00077",
+        "EV-00092",
+        "EV-00154",
+        "EV-00164",
+        "EV-00195",
+        "EV-00198",
+        "EV-00203",
+        "EV-00205",
+        "EV-00209",
+        "EV-00215",
+        "EV-00218",
+        "EV-00223",
+        "EV-00227",
+        "EV-00229"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00015",
+        "EV-00045",
+        "EV-00070",
+        "EV-00075",
+        "EV-00085",
+        "EV-00142"
+      ]
+    },
+    {
+      "case_id": "EVAL-010",
+      "exception_type": "DUPLICATE_INVOICE",
+      "vendor_id": "V-0010",
+      "query": "duplicate invoice vendor V-0010 duplicate detection invoice duplication duplicate prevention",
+      "relevant_evidence_ids": [
+        "EV-00106",
+        "EV-00110",
+        "EV-00117",
+        "EV-00165",
+        "EV-00173"
+      ],
+      "irrelevant_evidence_ids": [
+        "EV-00002",
+        "EV-00011",
+        "EV-00014",
+        "EV-00023",
+        "EV-00055",
+        "EV-00089",
+        "EV-00113",
+        "EV-00134",
+        "EV-00154",
+        "EV-00197",
+        "EV-00203",
+        "EV-00209",
+        "EV-00210",
+        "EV-00212",
+        "EV-00218"
+      ],
+      "invalid_evidence_ids": [
+        "EV-00027",
+        "EV-00042",
+        "EV-00047",
+        "EV-00050",
+        "EV-00078",
+        "EV-00082",
+        "EV-00087",
+        "EV-00091",
+        "EV-00196"
+      ]
+    }
+  ]
+}

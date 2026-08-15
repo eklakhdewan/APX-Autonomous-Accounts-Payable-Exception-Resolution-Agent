@@ -1,0 +1,52 @@
+profiles:
+  DEV:
+    dense_model: "BAAI/bge-small-en-v1.5"
+    reranker_model: "BAAI/bge-reranker-base"
+    device: "cpu"
+    batch_size: 16
+    max_seq_length: 512
+    bm25_top_k: 50
+    dense_top_k: 50
+    rrf_k: 60
+    rrf_constant: 60
+    reranker_top_k: 20
+    evidence_validity_enabled: true
+    description: "Development profile - small models for CPU"
+
+  EVAL:
+    dense_model: "BAAI/bge-large-en-v1.5"
+    reranker_model: "BAAI/bge-reranker-large"
+    device: "cpu"
+    batch_size: 8
+    max_seq_length: 512
+    bm25_top_k: 100
+    dense_top_k: 100
+    rrf_k: 60
+    rrf_constant: 60
+    reranker_top_k: 30
+    evidence_validity_enabled: true
+    description: "Evaluation profile - larger models"
+
+  PROD:
+    dense_model: "${DENSE_MODEL:BAAI/bge-large-en-v1.5}"
+    reranker_model: "${RERANKER_MODEL:BAAI/bge-reranker-large}"
+    device: "${DEVICE:cpu}"
+    batch_size: 32
+    max_seq_length: 512
+    bm25_top_k: 100
+    dense_top_k: 100
+    rrf_k: 60
+    rrf_constant: 60
+    reranker_top_k: 50
+    evidence_validity_enabled: true
+    description: "Production profile - configurable via environment variables"
+
+defaults:
+  active_profile: "DEV"
+  corpus_path: "apx/data/datasets/evidence"
+  eval_path: "apx/data/datasets/eval"
+  index_cache_path: "apx/data/datasets/evidence/index"
+
+agent:
+  max_investigation_steps: 10
+  default_llm_provider: "mock"

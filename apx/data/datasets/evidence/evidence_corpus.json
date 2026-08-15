@@ -1,0 +1,4639 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "EV-00001",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0004:VENDOR_MISMATCH",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-10-08",
+      "effective_until": "2025-03-12",
+      "policy_version": "v2.2",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "internal",
+      "usage_count": 47,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0004. Previous outcome: PARTIAL_PAYMENT. Resolution action: Escalated to procurement. Policy version v2.2 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Escalated to procurement"
+      }
+    },
+    {
+      "evidence_id": "EV-00002",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0003:CREDIT_ISSUE",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-03-08",
+      "effective_until": "2025-04-23",
+      "policy_version": "v1.1",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "external",
+      "usage_count": 38,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0003. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Escalated to finance. Policy version v1.1 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Credit hold released"
+      }
+    },
+    {
+      "evidence_id": "EV-00003",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:GRN_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-10-27",
+      "effective_until": "2026-09-01",
+      "policy_version": "v4.3",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 48,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0018. Previous outcome: ESCALATED_RESOLVED. Resolution action: Quantity adjusted. Policy version v4.3 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Quantity adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00004",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0014:TAX_ERROR",
+      "vendor_id": "V-0014",
+      "effective_from": "2024-10-11",
+      "effective_until": "2025-01-28",
+      "policy_version": "v2.5",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 6,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0014. Previous outcome: AUTO_APPROVED. Resolution action: Invoice corrected. Policy version v2.5 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Invoice corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00005",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0012:CREDIT_ISSUE",
+      "vendor_id": "V-0012",
+      "effective_from": "2024-09-27",
+      "effective_until": "2024-11-18",
+      "policy_version": "v4.8",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 35,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0012. Previous outcome: AUTO_APPROVED. Resolution action: Credit hold released. Policy version v4.8 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Payment terms adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00006",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0020:TAX_ERROR",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-08-14",
+      "effective_until": "2025-12-20",
+      "policy_version": "v1.0",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "external",
+      "usage_count": 5,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0020. Previous outcome: PARTIAL_PAYMENT. Resolution action: Invoice corrected. Policy version v1.0 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Tax recalculated"
+      }
+    },
+    {
+      "evidence_id": "EV-00007",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0004:CURRENCY_MISMATCH",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-10-11",
+      "effective_until": "2025-06-30",
+      "policy_version": "v3.2",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 42,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0004. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Currency converted. Policy version v3.2 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Invoice reissued"
+      }
+    },
+    {
+      "evidence_id": "EV-00008",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0003:CREDIT_ISSUE",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-10-12",
+      "effective_until": "2026-02-06",
+      "policy_version": "v5.3",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 17,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0003. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Payment terms adjusted. Policy version v5.3 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Escalated to finance"
+      }
+    },
+    {
+      "evidence_id": "EV-00009",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:GRN_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-12-02",
+      "effective_until": "2026-06-16",
+      "policy_version": "v1.3",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 17,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0018. Previous outcome: AUTO_APPROVED. Resolution action: Partial receipt accepted. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Quantity adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00010",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0007:CREDIT_ISSUE",
+      "vendor_id": "V-0007",
+      "effective_from": "2024-11-18",
+      "effective_until": "2025-04-05",
+      "policy_version": "v4.6",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "contractual",
+      "usage_count": 16,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0007. Previous outcome: PARTIAL_PAYMENT. Resolution action: Credit hold released. Policy version v4.6 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Credit hold released"
+      }
+    },
+    {
+      "evidence_id": "EV-00011",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:DISCOUNT_ERROR",
+      "vendor_id": "V-0008",
+      "effective_from": "2025-07-05",
+      "effective_until": "2025-12-16",
+      "policy_version": "v5.6",
+      "outcome": "REJECTED",
+      "source_authority": "contractual",
+      "usage_count": 14,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0008. Previous outcome: REJECTED. Resolution action: Contract terms applied. Policy version v5.6 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00012",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0017:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0017",
+      "effective_from": "2024-04-03",
+      "effective_until": "2024-05-27",
+      "policy_version": "v1.2",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "external",
+      "usage_count": 27,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0017. Previous outcome: PARTIAL_PAYMENT. Resolution action: Quantity matched. Policy version v1.2 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Quantity matched"
+      }
+    },
+    {
+      "evidence_id": "EV-00013",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0003:CURRENCY_MISMATCH",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-01-25",
+      "effective_until": "2025-12-26",
+      "policy_version": "v4.8",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 46,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0003. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Rate locked. Policy version v4.8 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Currency converted"
+      }
+    },
+    {
+      "evidence_id": "EV-00014",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:DUPLICATE_INVOICE",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-10-18",
+      "effective_until": "2026-05-10",
+      "policy_version": "v1.4",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "external",
+      "usage_count": 0,
+      "content": "Historical resolution for DUPLICATE_INVOICE on vendor V-0018. Previous outcome: ESCALATED_RESOLVED. Resolution action: Original processed. Policy version v1.4 applied.",
+      "metadata": {
+        "exception_code": "DUPLICATE_INVOICE",
+        "resolution_action": "Manual verification"
+      }
+    },
+    {
+      "evidence_id": "EV-00015",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:DISCOUNT_ERROR",
+      "vendor_id": "V-0009",
+      "effective_from": "2024-07-01",
+      "effective_until": "2025-04-16",
+      "policy_version": "v1.4",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "external",
+      "usage_count": 23,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0009. Previous outcome: PARTIAL_PAYMENT. Resolution action: Discount corrected. Policy version v1.4 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00016",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:DISCOUNT_ERROR",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-01-01",
+      "effective_until": "2024-12-02",
+      "policy_version": "v3.7",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 19,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0018. Previous outcome: AUTO_APPROVED. Resolution action: Contract terms applied. Policy version v3.7 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00017",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:GRN_MISMATCH",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-08-03",
+      "effective_until": "2025-10-12",
+      "policy_version": "v1.7",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "external",
+      "usage_count": 42,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0002. Previous outcome: AUTO_APPROVED. Resolution action: Quantity adjusted. Policy version v1.7 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00018",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:AMOUNT_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-09-28",
+      "effective_until": "2025-07-25",
+      "policy_version": "v5.6",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "external",
+      "usage_count": 19,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0018. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Credit memo issued. Policy version v5.6 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Tolerance applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00019",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0012:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-06-13",
+      "effective_until": "2026-03-01",
+      "policy_version": "v1.3",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 1,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0012. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Price adjusted. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Quantity matched"
+      }
+    },
+    {
+      "evidence_id": "EV-00020",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:GRN_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-08-25",
+      "effective_until": "2026-01-14",
+      "policy_version": "v1.1",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "internal",
+      "usage_count": 4,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0018. Previous outcome: PARTIAL_PAYMENT. Resolution action: Quantity adjusted. Policy version v1.1 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Quantity adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00021",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:PO_MISMATCH",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-06-10",
+      "effective_until": "2025-11-08",
+      "policy_version": "v3.7",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "external",
+      "usage_count": 36,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0011. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Manual override. Policy version v3.7 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Manual override"
+      }
+    },
+    {
+      "evidence_id": "EV-00022",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:GRN_MISMATCH",
+      "vendor_id": "V-0016",
+      "effective_from": "2025-04-29",
+      "effective_until": "2025-12-23",
+      "policy_version": "v2.1",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 27,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0016. Previous outcome: AUTO_APPROVED. Resolution action: Partial receipt accepted. Policy version v2.1 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00023",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0015:VENDOR_MISMATCH",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-11-20",
+      "effective_until": "2026-11-19",
+      "policy_version": "v1.0",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 15,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0015. Previous outcome: ESCALATED_RESOLVED. Resolution action: Vendor corrected. Policy version v1.0 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Vendor corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00024",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0007:DISCOUNT_ERROR",
+      "vendor_id": "V-0007",
+      "effective_from": "2025-04-04",
+      "effective_until": "2025-07-14",
+      "policy_version": "v4.2",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 4,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0007. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Discount corrected. Policy version v4.2 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Contract terms applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00025",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:PO_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-02-21",
+      "effective_until": "2025-02-18",
+      "policy_version": "v5.0",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "external",
+      "usage_count": 26,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0018. Previous outcome: AUTO_APPROVED. Resolution action: PO corrected. Policy version v5.0 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00026",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:GRN_MISMATCH",
+      "vendor_id": "V-0016",
+      "effective_from": "2025-02-14",
+      "effective_until": "2025-04-15",
+      "policy_version": "v2.6",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 50,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0016. Previous outcome: AUTO_APPROVED. Resolution action: Partial receipt accepted. Policy version v2.6 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00027",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:CURRENCY_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2025-12-14",
+      "effective_until": "2026-10-24",
+      "policy_version": "v4.2",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 3,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0010. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Currency converted. Policy version v4.2 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Rate locked"
+      }
+    },
+    {
+      "evidence_id": "EV-00028",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:VENDOR_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-11-17",
+      "effective_until": "2025-01-15",
+      "policy_version": "v1.9",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "external",
+      "usage_count": 32,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0018. Previous outcome: ESCALATED_RESOLVED. Resolution action: Vendor corrected. Policy version v1.9 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Vendor corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00029",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0006:PO_MISMATCH",
+      "vendor_id": "V-0006",
+      "effective_from": "2025-09-01",
+      "effective_until": "2025-11-04",
+      "policy_version": "v2.6",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "external",
+      "usage_count": 38,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0006. Previous outcome: AUTO_APPROVED. Resolution action: Manual override. Policy version v2.6 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "PO corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00030",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0020:PO_MISMATCH",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-03-05",
+      "effective_until": "2026-01-27",
+      "policy_version": "v5.8",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 42,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0020. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: PO corrected. Policy version v5.8 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Manual override"
+      }
+    },
+    {
+      "evidence_id": "EV-00031",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:GRN_MISMATCH",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-09-28",
+      "effective_until": "2025-05-18",
+      "policy_version": "v2.4",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 0,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0011. Previous outcome: ESCALATED_RESOLVED. Resolution action: Quantity adjusted. Policy version v2.4 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00032",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0020:CREDIT_ISSUE",
+      "vendor_id": "V-0020",
+      "effective_from": "2024-04-12",
+      "effective_until": "2024-06-18",
+      "policy_version": "v5.3",
+      "outcome": "REJECTED",
+      "source_authority": "regulatory",
+      "usage_count": 22,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0020. Previous outcome: REJECTED. Resolution action: Credit hold released. Policy version v5.3 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Credit hold released"
+      }
+    },
+    {
+      "evidence_id": "EV-00033",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:TAX_ERROR",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-10-18",
+      "effective_until": "2025-02-05",
+      "policy_version": "v4.8",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 41,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0008. Previous outcome: PARTIAL_PAYMENT. Resolution action: Exemption applied. Policy version v4.8 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Exemption applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00034",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0001:DISCOUNT_ERROR",
+      "vendor_id": "V-0001",
+      "effective_from": "2024-11-02",
+      "effective_until": "2025-01-24",
+      "policy_version": "v2.4",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 35,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0001. Previous outcome: AUTO_APPROVED. Resolution action: Manual override. Policy version v2.4 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00035",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:DUPLICATE_INVOICE",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-09-11",
+      "effective_until": "2026-01-26",
+      "policy_version": "v3.3",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 31,
+      "content": "Historical resolution for DUPLICATE_INVOICE on vendor V-0009. Previous outcome: PARTIAL_PAYMENT. Resolution action: Manual verification. Policy version v3.3 applied.",
+      "metadata": {
+        "exception_code": "DUPLICATE_INVOICE",
+        "resolution_action": "Original processed"
+      }
+    },
+    {
+      "evidence_id": "EV-00036",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:PO_MISMATCH",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-10-11",
+      "effective_until": "2026-06-14",
+      "policy_version": "v3.0",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 40,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0002. Previous outcome: AUTO_APPROVED. Resolution action: PO corrected. Policy version v3.0 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00037",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0006:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0006",
+      "effective_from": "2025-07-18",
+      "effective_until": "2026-03-23",
+      "policy_version": "v5.0",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 9,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0006. Previous outcome: AUTO_APPROVED. Resolution action: Quantity matched. Policy version v5.0 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Quantity matched"
+      }
+    },
+    {
+      "evidence_id": "EV-00038",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:TAX_ERROR",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-08-19",
+      "effective_until": "2026-06-27",
+      "policy_version": "v2.6",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 23,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0002. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Invoice corrected. Policy version v2.6 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Tax recalculated"
+      }
+    },
+    {
+      "evidence_id": "EV-00039",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0012:GRN_MISMATCH",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-11-29",
+      "effective_until": "2026-05-05",
+      "policy_version": "v1.5",
+      "outcome": "REJECTED",
+      "source_authority": "contractual",
+      "usage_count": 47,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0012. Previous outcome: REJECTED. Resolution action: Return initiated. Policy version v1.5 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Quantity adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00040",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:AMOUNT_MISMATCH",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-06-30",
+      "effective_until": "2025-02-26",
+      "policy_version": "v1.2",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 42,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0008. Previous outcome: PARTIAL_PAYMENT. Resolution action: Tolerance applied. Policy version v1.2 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Credit memo issued"
+      }
+    },
+    {
+      "evidence_id": "EV-00041",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:DUPLICATE_INVOICE",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-06-12",
+      "effective_until": "2024-09-05",
+      "policy_version": "v4.0",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "external",
+      "usage_count": 29,
+      "content": "Historical resolution for DUPLICATE_INVOICE on vendor V-0008. Previous outcome: ESCALATED_RESOLVED. Resolution action: Duplicate voided. Policy version v4.0 applied.",
+      "metadata": {
+        "exception_code": "DUPLICATE_INVOICE",
+        "resolution_action": "Original processed"
+      }
+    },
+    {
+      "evidence_id": "EV-00042",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:GRN_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-08-16",
+      "effective_until": "2024-09-27",
+      "policy_version": "v2.6",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 49,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0010. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Quantity adjusted. Policy version v2.6 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00043",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0012:DISCOUNT_ERROR",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-02-13",
+      "effective_until": "2025-12-14",
+      "policy_version": "v3.0",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 37,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0012. Previous outcome: AUTO_APPROVED. Resolution action: Discount corrected. Policy version v3.0 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Contract terms applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00044",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:PO_MISMATCH",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-09-02",
+      "effective_until": "2026-05-12",
+      "policy_version": "v3.5",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 36,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0002. Previous outcome: ESCALATED_RESOLVED. Resolution action: Invoice matched to correct PO. Policy version v3.5 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "PO corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00045",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:VENDOR_MISMATCH",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-12-26",
+      "effective_until": "2026-09-05",
+      "policy_version": "v1.8",
+      "outcome": "REJECTED",
+      "source_authority": "external",
+      "usage_count": 27,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0009. Previous outcome: REJECTED. Resolution action: Invoice rejected. Policy version v1.8 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Vendor corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00046",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:CREDIT_ISSUE",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-11-17",
+      "effective_until": "2025-02-18",
+      "policy_version": "v3.8",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 25,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0011. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Payment terms adjusted. Policy version v3.8 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Escalated to finance"
+      }
+    },
+    {
+      "evidence_id": "EV-00047",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:DISCOUNT_ERROR",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-05-10",
+      "effective_until": "2024-09-15",
+      "policy_version": "v4.6",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "external",
+      "usage_count": 36,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0010. Previous outcome: PARTIAL_PAYMENT. Resolution action: Manual override. Policy version v4.6 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Contract terms applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00048",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0013:DISCOUNT_ERROR",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-01-01",
+      "effective_until": "2024-07-04",
+      "policy_version": "v3.3",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 28,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0013. Previous outcome: ESCALATED_RESOLVED. Resolution action: Contract terms applied. Policy version v3.3 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Contract terms applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00049",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0007:DISCOUNT_ERROR",
+      "vendor_id": "V-0007",
+      "effective_from": "2025-04-29",
+      "effective_until": "2025-08-23",
+      "policy_version": "v1.4",
+      "outcome": "REJECTED",
+      "source_authority": "regulatory",
+      "usage_count": 48,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0007. Previous outcome: REJECTED. Resolution action: Discount corrected. Policy version v1.4 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00050",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:GRN_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-07-22",
+      "effective_until": "2024-11-04",
+      "policy_version": "v1.0",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 49,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0010. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Return initiated. Policy version v1.0 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Quantity adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00051",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0015:CURRENCY_MISMATCH",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-10-06",
+      "effective_until": "2026-08-26",
+      "policy_version": "v2.6",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 9,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0015. Previous outcome: ESCALATED_RESOLVED. Resolution action: Currency converted. Policy version v2.6 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Rate locked"
+      }
+    },
+    {
+      "evidence_id": "EV-00052",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0001:PO_MISMATCH",
+      "vendor_id": "V-0001",
+      "effective_from": "2025-03-11",
+      "effective_until": "2025-07-31",
+      "policy_version": "v2.8",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 15,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0001. Previous outcome: ESCALATED_RESOLVED. Resolution action: Manual override. Policy version v2.8 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "PO corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00053",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0015:AMOUNT_MISMATCH",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-04-20",
+      "effective_until": "2026-02-15",
+      "policy_version": "v5.9",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 46,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0015. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Credit memo issued. Policy version v5.9 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Credit memo issued"
+      }
+    },
+    {
+      "evidence_id": "EV-00054",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0014:DISCOUNT_ERROR",
+      "vendor_id": "V-0014",
+      "effective_from": "2025-04-01",
+      "effective_until": "2025-07-21",
+      "policy_version": "v4.7",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "external",
+      "usage_count": 17,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0014. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Manual override. Policy version v4.7 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Manual override"
+      }
+    },
+    {
+      "evidence_id": "EV-00055",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:GRN_MISMATCH",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-10-08",
+      "effective_until": "2025-06-20",
+      "policy_version": "v1.4",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 20,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0016. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Partial receipt accepted. Policy version v1.4 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Return initiated"
+      }
+    },
+    {
+      "evidence_id": "EV-00056",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0003:AMOUNT_MISMATCH",
+      "vendor_id": "V-0003",
+      "effective_from": "2024-06-03",
+      "effective_until": "2024-10-29",
+      "policy_version": "v4.2",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "external",
+      "usage_count": 26,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0003. Previous outcome: PARTIAL_PAYMENT. Resolution action: Amount corrected. Policy version v4.2 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Tolerance applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00057",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:DISCOUNT_ERROR",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-04-22",
+      "effective_until": "2025-12-20",
+      "policy_version": "v1.3",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 44,
+      "content": "Historical resolution for DISCOUNT_ERROR on vendor V-0011. Previous outcome: ESCALATED_RESOLVED. Resolution action: Manual override. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "DISCOUNT_ERROR",
+        "resolution_action": "Discount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00058",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0019:CURRENCY_MISMATCH",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-05-03",
+      "effective_until": "2025-06-05",
+      "policy_version": "v3.4",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 47,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0019. Previous outcome: ESCALATED_RESOLVED. Resolution action: Rate locked. Policy version v3.4 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Rate locked"
+      }
+    },
+    {
+      "evidence_id": "EV-00059",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:CREDIT_ISSUE",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-08-13",
+      "effective_until": "2025-05-19",
+      "policy_version": "v2.4",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 24,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0018. Previous outcome: ESCALATED_RESOLVED. Resolution action: Credit hold released. Policy version v2.4 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Payment terms adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00060",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0013:AMOUNT_MISMATCH",
+      "vendor_id": "V-0013",
+      "effective_from": "2025-04-23",
+      "effective_until": "2025-07-27",
+      "policy_version": "v5.8",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 36,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0013. Previous outcome: AUTO_APPROVED. Resolution action: Credit memo issued. Policy version v5.8 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Credit memo issued"
+      }
+    },
+    {
+      "evidence_id": "EV-00061",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0001:PO_MISMATCH",
+      "vendor_id": "V-0001",
+      "effective_from": "2025-10-20",
+      "effective_until": "2026-06-26",
+      "policy_version": "v2.7",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 24,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0001. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Invoice matched to correct PO. Policy version v2.7 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00062",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0007:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0007",
+      "effective_from": "2024-11-30",
+      "effective_until": "2025-06-20",
+      "policy_version": "v4.4",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 30,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0007. Previous outcome: ESCALATED_RESOLVED. Resolution action: Line items corrected. Policy version v4.4 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Line items corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00063",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:VENDOR_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-12-24",
+      "effective_until": "2025-05-17",
+      "policy_version": "v1.0",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "external",
+      "usage_count": 1,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0018. Previous outcome: AUTO_APPROVED. Resolution action: Vendor corrected. Policy version v1.0 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Escalated to procurement"
+      }
+    },
+    {
+      "evidence_id": "EV-00064",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0005:GRN_MISMATCH",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-05-09",
+      "effective_until": "2025-02-05",
+      "policy_version": "v1.9",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 16,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0005. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Return initiated. Policy version v1.9 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00065",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0006:CREDIT_ISSUE",
+      "vendor_id": "V-0006",
+      "effective_from": "2025-09-13",
+      "effective_until": "2025-12-10",
+      "policy_version": "v2.4",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 36,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0006. Previous outcome: AUTO_APPROVED. Resolution action: Payment terms adjusted. Policy version v2.4 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Escalated to finance"
+      }
+    },
+    {
+      "evidence_id": "EV-00066",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0013:CURRENCY_MISMATCH",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-07-22",
+      "effective_until": "2024-09-28",
+      "policy_version": "v5.3",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 38,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0013. Previous outcome: AUTO_APPROVED. Resolution action: Rate locked. Policy version v5.3 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Currency converted"
+      }
+    },
+    {
+      "evidence_id": "EV-00067",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0019:VENDOR_MISMATCH",
+      "vendor_id": "V-0019",
+      "effective_from": "2024-12-21",
+      "effective_until": "2025-10-19",
+      "policy_version": "v4.5",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 26,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0019. Previous outcome: AUTO_APPROVED. Resolution action: Vendor corrected. Policy version v4.5 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Invoice rejected"
+      }
+    },
+    {
+      "evidence_id": "EV-00068",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0004:CURRENCY_MISMATCH",
+      "vendor_id": "V-0004",
+      "effective_from": "2025-01-05",
+      "effective_until": "2025-12-26",
+      "policy_version": "v4.2",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "external",
+      "usage_count": 33,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0004. Previous outcome: ESCALATED_RESOLVED. Resolution action: Rate locked. Policy version v4.2 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Rate locked"
+      }
+    },
+    {
+      "evidence_id": "EV-00069",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:CREDIT_ISSUE",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-07-05",
+      "effective_until": "2026-04-08",
+      "policy_version": "v4.6",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 15,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0009. Previous outcome: PARTIAL_PAYMENT. Resolution action: Payment terms adjusted. Policy version v4.6 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Credit hold released"
+      }
+    },
+    {
+      "evidence_id": "EV-00070",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0009",
+      "effective_from": "2024-09-06",
+      "effective_until": "2025-05-31",
+      "policy_version": "v5.9",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "contractual",
+      "usage_count": 1,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0009. Previous outcome: PARTIAL_PAYMENT. Resolution action: Price adjusted. Policy version v5.9 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Price adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00071",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:AMOUNT_MISMATCH",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-05-14",
+      "effective_until": "2025-09-29",
+      "policy_version": "v3.4",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 44,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0011. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Credit memo issued. Policy version v3.4 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Tolerance applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00072",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:VENDOR_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-06-13",
+      "effective_until": "2025-10-18",
+      "policy_version": "v1.3",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "contractual",
+      "usage_count": 35,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0018. Previous outcome: PARTIAL_PAYMENT. Resolution action: Invoice rejected. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Vendor corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00073",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0016",
+      "effective_from": "2025-04-03",
+      "effective_until": "2025-05-11",
+      "policy_version": "v1.4",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 15,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0016. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Quantity matched. Policy version v1.4 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Price adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00074",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0019:TAX_ERROR",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-04-29",
+      "effective_until": "2026-03-08",
+      "policy_version": "v5.5",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 44,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0019. Previous outcome: ESCALATED_RESOLVED. Resolution action: Invoice corrected. Policy version v5.5 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Invoice corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00075",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:DUPLICATE_INVOICE",
+      "vendor_id": "V-0009",
+      "effective_from": "2024-09-14",
+      "effective_until": "2025-02-09",
+      "policy_version": "v1.3",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 34,
+      "content": "Historical resolution for DUPLICATE_INVOICE on vendor V-0009. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Manual verification. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "DUPLICATE_INVOICE",
+        "resolution_action": "Manual verification"
+      }
+    },
+    {
+      "evidence_id": "EV-00076",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0006:GRN_MISMATCH",
+      "vendor_id": "V-0006",
+      "effective_from": "2024-08-09",
+      "effective_until": "2025-05-13",
+      "policy_version": "v3.9",
+      "outcome": "REJECTED",
+      "source_authority": "regulatory",
+      "usage_count": 12,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0006. Previous outcome: REJECTED. Resolution action: Quantity adjusted. Policy version v3.9 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Partial receipt accepted"
+      }
+    },
+    {
+      "evidence_id": "EV-00077",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:TAX_ERROR",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-07-02",
+      "effective_until": "2025-01-02",
+      "policy_version": "v1.8",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 3,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0008. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Tax recalculated. Policy version v1.8 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Exemption applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00078",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:AMOUNT_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2025-10-15",
+      "effective_until": "2026-07-23",
+      "policy_version": "v1.0",
+      "outcome": "REJECTED",
+      "source_authority": "regulatory",
+      "usage_count": 30,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0010. Previous outcome: REJECTED. Resolution action: Tolerance applied. Policy version v1.0 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Tolerance applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00079",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:AMOUNT_MISMATCH",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-02-22",
+      "effective_until": "2024-07-30",
+      "policy_version": "v4.1",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 4,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0011. Previous outcome: AUTO_APPROVED. Resolution action: Tolerance applied. Policy version v4.1 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Credit memo issued"
+      }
+    },
+    {
+      "evidence_id": "EV-00080",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:AMOUNT_MISMATCH",
+      "vendor_id": "V-0002",
+      "effective_from": "2024-06-01",
+      "effective_until": "2025-04-15",
+      "policy_version": "v3.1",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "internal",
+      "usage_count": 48,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0002. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Credit memo issued. Policy version v3.1 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Tolerance applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00081",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0020:CREDIT_ISSUE",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-09-25",
+      "effective_until": "2026-02-17",
+      "policy_version": "v5.6",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "contractual",
+      "usage_count": 37,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0020. Previous outcome: ESCALATED_RESOLVED. Resolution action: Payment terms adjusted. Policy version v5.6 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Payment terms adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00082",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:CREDIT_ISSUE",
+      "vendor_id": "V-0010",
+      "effective_from": "2025-09-27",
+      "effective_until": "2025-11-26",
+      "policy_version": "v5.1",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "external",
+      "usage_count": 42,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0010. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Payment terms adjusted. Policy version v5.1 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Credit hold released"
+      }
+    },
+    {
+      "evidence_id": "EV-00083",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0006:GRN_MISMATCH",
+      "vendor_id": "V-0006",
+      "effective_from": "2024-06-26",
+      "effective_until": "2025-05-04",
+      "policy_version": "v1.2",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 44,
+      "content": "Historical resolution for GRN_MISMATCH on vendor V-0006. Previous outcome: AUTO_APPROVED. Resolution action: Partial receipt accepted. Policy version v1.2 applied.",
+      "metadata": {
+        "exception_code": "GRN_MISMATCH",
+        "resolution_action": "Return initiated"
+      }
+    },
+    {
+      "evidence_id": "EV-00084",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:DUPLICATE_INVOICE",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-02-03",
+      "effective_until": "2024-06-30",
+      "policy_version": "v3.4",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "contractual",
+      "usage_count": 43,
+      "content": "Historical resolution for DUPLICATE_INVOICE on vendor V-0016. Previous outcome: PARTIAL_PAYMENT. Resolution action: Duplicate voided. Policy version v3.4 applied.",
+      "metadata": {
+        "exception_code": "DUPLICATE_INVOICE",
+        "resolution_action": "Duplicate voided"
+      }
+    },
+    {
+      "evidence_id": "EV-00085",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0009:CREDIT_ISSUE",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-11-08",
+      "effective_until": "2026-03-19",
+      "policy_version": "v4.1",
+      "outcome": "REJECTED",
+      "source_authority": "external",
+      "usage_count": 9,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0009. Previous outcome: REJECTED. Resolution action: Escalated to finance. Policy version v4.1 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Payment terms adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00086",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0005:PO_MISMATCH",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-03-02",
+      "effective_until": "2024-06-24",
+      "policy_version": "v3.9",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 7,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0005. Previous outcome: PARTIAL_PAYMENT. Resolution action: Invoice matched to correct PO. Policy version v3.9 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00087",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:CURRENCY_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-10-05",
+      "effective_until": "2025-07-18",
+      "policy_version": "v5.7",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 2,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0010. Previous outcome: ESCALATED_RESOLVED. Resolution action: Rate locked. Policy version v5.7 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Invoice reissued"
+      }
+    },
+    {
+      "evidence_id": "EV-00088",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0011:CREDIT_ISSUE",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-09-13",
+      "effective_until": "2024-10-26",
+      "policy_version": "v1.3",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "internal",
+      "usage_count": 17,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0011. Previous outcome: PARTIAL_PAYMENT. Resolution action: Escalated to finance. Policy version v1.3 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Escalated to finance"
+      }
+    },
+    {
+      "evidence_id": "EV-00089",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:AMOUNT_MISMATCH",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-04-26",
+      "effective_until": "2026-02-15",
+      "policy_version": "v4.4",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 31,
+      "content": "Historical resolution for AMOUNT_MISMATCH on vendor V-0002. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Credit memo issued. Policy version v4.4 applied.",
+      "metadata": {
+        "exception_code": "AMOUNT_MISMATCH",
+        "resolution_action": "Amount corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00090",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:TAX_ERROR",
+      "vendor_id": "V-0016",
+      "effective_from": "2025-02-22",
+      "effective_until": "2025-09-10",
+      "policy_version": "v3.1",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 44,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0016. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Invoice corrected. Policy version v3.1 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Invoice corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00091",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0010:CURRENCY_MISMATCH",
+      "vendor_id": "V-0010",
+      "effective_from": "2025-07-17",
+      "effective_until": "2025-09-03",
+      "policy_version": "v4.1",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "regulatory",
+      "usage_count": 7,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0010. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Invoice reissued. Policy version v4.1 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Invoice reissued"
+      }
+    },
+    {
+      "evidence_id": "EV-00092",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0017:VENDOR_MISMATCH",
+      "vendor_id": "V-0017",
+      "effective_from": "2025-11-04",
+      "effective_until": "2026-09-07",
+      "policy_version": "v4.6",
+      "outcome": "AUTO_APPROVED",
+      "source_authority": "external",
+      "usage_count": 23,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0017. Previous outcome: AUTO_APPROVED. Resolution action: Escalated to procurement. Policy version v4.6 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Escalated to procurement"
+      }
+    },
+    {
+      "evidence_id": "EV-00093",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0016:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-02-22",
+      "effective_until": "2024-07-05",
+      "policy_version": "v3.8",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "regulatory",
+      "usage_count": 44,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0016. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Price adjusted. Policy version v3.8 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Price adjusted"
+      }
+    },
+    {
+      "evidence_id": "EV-00094",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0004:VENDOR_MISMATCH",
+      "vendor_id": "V-0004",
+      "effective_from": "2025-10-07",
+      "effective_until": "2026-09-13",
+      "policy_version": "v2.2",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 26,
+      "content": "Historical resolution for VENDOR_MISMATCH on vendor V-0004. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Escalated to procurement. Policy version v2.2 applied.",
+      "metadata": {
+        "exception_code": "VENDOR_MISMATCH",
+        "resolution_action": "Vendor corrected"
+      }
+    },
+    {
+      "evidence_id": "EV-00095",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0008:PO_MISMATCH",
+      "vendor_id": "V-0008",
+      "effective_from": "2025-04-17",
+      "effective_until": "2025-07-16",
+      "policy_version": "v2.7",
+      "outcome": "PARTIAL_PAYMENT",
+      "source_authority": "regulatory",
+      "usage_count": 45,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0008. Previous outcome: PARTIAL_PAYMENT. Resolution action: Manual override. Policy version v2.7 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00096",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0014:LINE_ITEM_MISMATCH",
+      "vendor_id": "V-0014",
+      "effective_from": "2025-04-28",
+      "effective_until": "2025-09-29",
+      "policy_version": "v4.8",
+      "outcome": "MANUAL_REVIEW_APPROVED",
+      "source_authority": "contractual",
+      "usage_count": 38,
+      "content": "Historical resolution for LINE_ITEM_MISMATCH on vendor V-0014. Previous outcome: MANUAL_REVIEW_APPROVED. Resolution action: Line items corrected. Policy version v4.8 applied.",
+      "metadata": {
+        "exception_code": "LINE_ITEM_MISMATCH",
+        "resolution_action": "Quantity matched"
+      }
+    },
+    {
+      "evidence_id": "EV-00097",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0005:PO_MISMATCH",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-10-09",
+      "effective_until": "2025-06-08",
+      "policy_version": "v3.8",
+      "outcome": "REQUEST_INFO_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 46,
+      "content": "Historical resolution for PO_MISMATCH on vendor V-0005. Previous outcome: REQUEST_INFO_RESOLVED. Resolution action: Invoice matched to correct PO. Policy version v3.8 applied.",
+      "metadata": {
+        "exception_code": "PO_MISMATCH",
+        "resolution_action": "Invoice matched to correct PO"
+      }
+    },
+    {
+      "evidence_id": "EV-00098",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0019:CREDIT_ISSUE",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-11-06",
+      "effective_until": "2026-08-13",
+      "policy_version": "v2.7",
+      "outcome": "REJECTED",
+      "source_authority": "contractual",
+      "usage_count": 21,
+      "content": "Historical resolution for CREDIT_ISSUE on vendor V-0019. Previous outcome: REJECTED. Resolution action: Payment terms adjusted. Policy version v2.7 applied.",
+      "metadata": {
+        "exception_code": "CREDIT_ISSUE",
+        "resolution_action": "Escalated to finance"
+      }
+    },
+    {
+      "evidence_id": "EV-00099",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0018:CURRENCY_MISMATCH",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-04-11",
+      "effective_until": "2025-10-22",
+      "policy_version": "v2.3",
+      "outcome": "REJECTED",
+      "source_authority": "contractual",
+      "usage_count": 49,
+      "content": "Historical resolution for CURRENCY_MISMATCH on vendor V-0018. Previous outcome: REJECTED. Resolution action: Currency converted. Policy version v2.3 applied.",
+      "metadata": {
+        "exception_code": "CURRENCY_MISMATCH",
+        "resolution_action": "Invoice reissued"
+      }
+    },
+    {
+      "evidence_id": "EV-00100",
+      "evidence_type": "historical_resolution",
+      "scope": "vendor_exception",
+      "scope_target": "V-0002:TAX_ERROR",
+      "vendor_id": "V-0002",
+      "effective_from": "2025-04-29",
+      "effective_until": "2025-12-10",
+      "policy_version": "v4.2",
+      "outcome": "ESCALATED_RESOLVED",
+      "source_authority": "internal",
+      "usage_count": 32,
+      "content": "Historical resolution for TAX_ERROR on vendor V-0002. Previous outcome: ESCALATED_RESOLVED. Resolution action: Tax recalculated. Policy version v4.2 applied.",
+      "metadata": {
+        "exception_code": "TAX_ERROR",
+        "resolution_action": "Exemption applied"
+      }
+    },
+    {
+      "evidence_id": "EV-00101",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0011",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-03-26",
+      "effective_until": "2026-01-02",
+      "policy_version": "v5.7",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 92,
+      "content": "Vendor V-0011 payment terms policy v5.7. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00102",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-06-07",
+      "effective_until": "2025-02-18",
+      "policy_version": "v4.4",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 79,
+      "content": "Vendor V-0005 discount rules policy v4.4. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00103",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-12-02",
+      "effective_until": "2026-11-28",
+      "policy_version": "v4.5",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 69,
+      "content": "Vendor V-0013 payment terms policy v4.5. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00104",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0002",
+      "vendor_id": "V-0002",
+      "effective_from": "2024-08-28",
+      "effective_until": "2025-12-15",
+      "policy_version": "v2.1",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 12,
+      "content": "Vendor V-0002 payment terms policy v2.1. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00105",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-06-19",
+      "effective_until": "2025-10-18",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 7,
+      "content": "Vendor V-0004 discount rules policy v1.0. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00106",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0010",
+      "vendor_id": "V-0010",
+      "effective_from": "2025-01-18",
+      "effective_until": "2026-10-01",
+      "policy_version": "v2.3",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 72,
+      "content": "Vendor V-0010 credit limits policy v2.3. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00107",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0006",
+      "vendor_id": "V-0006",
+      "effective_from": "2024-06-28",
+      "effective_until": "2025-03-15",
+      "policy_version": "v5.6",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 63,
+      "content": "Vendor V-0006 exception thresholds policy v5.6. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00108",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0019",
+      "vendor_id": "V-0019",
+      "effective_from": "2024-08-25",
+      "effective_until": "2026-06-08",
+      "policy_version": "v3.7",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 85,
+      "content": "Vendor V-0019 exception thresholds policy v3.7. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00109",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2024-10-21",
+      "effective_until": "2025-09-27",
+      "policy_version": "v1.7",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 75,
+      "content": "Vendor V-0001 discount rules policy v1.7. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00110",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0010",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-09-13",
+      "effective_until": "2026-06-22",
+      "policy_version": "v3.3",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 61,
+      "content": "Vendor V-0010 discount rules policy v3.3. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00111",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2025-01-25",
+      "effective_until": "2026-07-26",
+      "policy_version": "v5.4",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 2,
+      "content": "Vendor V-0004 exception thresholds policy v5.4. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00112",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-01-09",
+      "effective_until": "2024-08-26",
+      "policy_version": "v5.7",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 99,
+      "content": "Vendor V-0013 credit limits policy v5.7. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00113",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0008",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-08-12",
+      "effective_until": "2025-08-21",
+      "policy_version": "v5.4",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 80,
+      "content": "Vendor V-0008 credit limits policy v5.4. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00114",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-11-12",
+      "effective_until": "2026-08-05",
+      "policy_version": "v1.9",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 93,
+      "content": "Vendor V-0004 payment terms policy v1.9. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00115",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-10-29",
+      "effective_until": "2026-03-27",
+      "policy_version": "v4.2",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 16,
+      "content": "Vendor V-0005 payment terms policy v4.2. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00116",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0018",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-06-27",
+      "effective_until": "2027-05-21",
+      "policy_version": "v3.2",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 61,
+      "content": "Vendor V-0018 credit limits policy v3.2. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00117",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0010",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-04-27",
+      "effective_until": "2026-02-15",
+      "policy_version": "v1.2",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 86,
+      "content": "Vendor V-0010 credit limits policy v1.2. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00118",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-04-02",
+      "effective_until": "2025-11-07",
+      "policy_version": "v1.4",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 58,
+      "content": "Vendor V-0013 credit limits policy v1.4. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00119",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0012",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-01-25",
+      "effective_until": "2026-08-08",
+      "policy_version": "v1.3",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 3,
+      "content": "Vendor V-0012 credit limits policy v1.3. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00120",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0020",
+      "vendor_id": "V-0020",
+      "effective_from": "2024-08-14",
+      "effective_until": "2025-04-15",
+      "policy_version": "v4.4",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 14,
+      "content": "Vendor V-0020 credit limits policy v4.4. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00121",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-02-08",
+      "effective_until": "2025-06-13",
+      "policy_version": "v4.1",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 30,
+      "content": "Vendor V-0005 payment terms policy v4.1. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00122",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0018",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-02-01",
+      "effective_until": "2026-11-07",
+      "policy_version": "v3.8",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 75,
+      "content": "Vendor V-0018 exception thresholds policy v3.8. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00123",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-04-11",
+      "effective_until": "2026-02-21",
+      "policy_version": "v5.6",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 4,
+      "content": "Vendor V-0005 discount rules policy v5.6. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00124",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0012",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-03-30",
+      "effective_until": "2026-12-25",
+      "policy_version": "v2.5",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 87,
+      "content": "Vendor V-0012 exception thresholds policy v2.5. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00125",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0012",
+      "vendor_id": "V-0012",
+      "effective_from": "2024-03-03",
+      "effective_until": "2025-10-11",
+      "policy_version": "v3.3",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 58,
+      "content": "Vendor V-0012 credit limits policy v3.3. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00126",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0003",
+      "vendor_id": "V-0003",
+      "effective_from": "2024-01-22",
+      "effective_until": "2024-09-09",
+      "policy_version": "v3.3",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 100,
+      "content": "Vendor V-0003 exception thresholds policy v3.3. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00127",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0019",
+      "vendor_id": "V-0019",
+      "effective_from": "2024-03-11",
+      "effective_until": "2025-04-07",
+      "policy_version": "v5.3",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 42,
+      "content": "Vendor V-0019 exception thresholds policy v5.3. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00128",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-10-10",
+      "effective_until": "2025-09-03",
+      "policy_version": "v2.8",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 22,
+      "content": "Vendor V-0005 payment terms policy v2.8. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00129",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-05-14",
+      "effective_until": "2024-11-25",
+      "policy_version": "v3.3",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 2,
+      "content": "Vendor V-0004 payment terms policy v3.3. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00130",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0006",
+      "vendor_id": "V-0006",
+      "effective_from": "2024-02-23",
+      "effective_until": "2024-12-28",
+      "policy_version": "v4.8",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 95,
+      "content": "Vendor V-0006 credit limits policy v4.8. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00131",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0003",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-04-04",
+      "effective_until": "2026-10-06",
+      "policy_version": "v5.9",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 57,
+      "content": "Vendor V-0003 discount rules policy v5.9. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00132",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0017",
+      "vendor_id": "V-0017",
+      "effective_from": "2024-02-14",
+      "effective_until": "2026-01-27",
+      "policy_version": "v3.7",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 7,
+      "content": "Vendor V-0017 exception thresholds policy v3.7. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00133",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0016",
+      "vendor_id": "V-0016",
+      "effective_from": "2025-03-12",
+      "effective_until": "2025-12-27",
+      "policy_version": "v4.7",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 10,
+      "content": "Vendor V-0016 discount rules policy v4.7. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00134",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0011",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-03-08",
+      "effective_until": "2025-01-11",
+      "policy_version": "v3.9",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 48,
+      "content": "Vendor V-0011 exception thresholds policy v3.9. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00135",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0020",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-04-09",
+      "effective_until": "2027-03-07",
+      "policy_version": "v5.6",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 89,
+      "content": "Vendor V-0020 credit limits policy v5.6. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00136",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2025-03-16",
+      "effective_until": "2026-12-18",
+      "policy_version": "v2.6",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 58,
+      "content": "Vendor V-0004 exception thresholds policy v2.6. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00137",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-04-07",
+      "effective_until": "2025-08-20",
+      "policy_version": "v4.5",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 47,
+      "content": "Vendor V-0013 discount rules policy v4.5. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00138",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0005",
+      "vendor_id": "V-0005",
+      "effective_from": "2024-03-09",
+      "effective_until": "2024-12-07",
+      "policy_version": "v1.1",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 12,
+      "content": "Vendor V-0005 discount rules policy v1.1. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00139",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0012",
+      "vendor_id": "V-0012",
+      "effective_from": "2024-03-02",
+      "effective_until": "2025-08-01",
+      "policy_version": "v1.6",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 85,
+      "content": "Vendor V-0012 exception thresholds policy v1.6. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00140",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0014",
+      "vendor_id": "V-0014",
+      "effective_from": "2024-10-21",
+      "effective_until": "2026-03-04",
+      "policy_version": "v3.1",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 19,
+      "content": "Vendor V-0014 payment terms policy v3.1. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00141",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0016",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-04-20",
+      "effective_until": "2025-10-10",
+      "policy_version": "v5.5",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 97,
+      "content": "Vendor V-0016 exception thresholds policy v5.5. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00142",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0009",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-03-15",
+      "effective_until": "2025-10-07",
+      "policy_version": "v5.4",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 23,
+      "content": "Vendor V-0009 exception thresholds policy v5.4. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00143",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0009",
+      "vendor_id": "V-0009",
+      "effective_from": "2024-12-13",
+      "effective_until": "2026-06-05",
+      "policy_version": "v1.2",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 72,
+      "content": "Vendor V-0009 credit limits policy v1.2. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00144",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-05-25",
+      "effective_until": "2024-12-22",
+      "policy_version": "v1.8",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 48,
+      "content": "Vendor V-0013 payment terms policy v1.8. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00145",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0014",
+      "vendor_id": "V-0014",
+      "effective_from": "2024-12-15",
+      "effective_until": "2025-11-21",
+      "policy_version": "v3.4",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 99,
+      "content": "Vendor V-0014 discount rules policy v3.4. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00146",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0019",
+      "vendor_id": "V-0019",
+      "effective_from": "2024-02-23",
+      "effective_until": "2025-01-27",
+      "policy_version": "v2.9",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 86,
+      "content": "Vendor V-0019 payment terms policy v2.9. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00147",
+      "evidence_type": "vendor_policy",
+      "scope": "credit_limits",
+      "scope_target": "V-0003",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-03-29",
+      "effective_until": "2026-12-03",
+      "policy_version": "v4.9",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 53,
+      "content": "Vendor V-0003 credit limits policy v4.9. Credit limit: $100,000. Hold threshold: $80,000.",
+      "metadata": {
+        "policy_scope": "credit_limits",
+        "thresholds": {
+          "credit_limit": 100000,
+          "hold_threshold": 80000
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00148",
+      "evidence_type": "vendor_policy",
+      "scope": "exception_thresholds",
+      "scope_target": "V-0009",
+      "vendor_id": "V-0009",
+      "effective_from": "2025-06-08",
+      "effective_until": "2026-03-31",
+      "policy_version": "v3.6",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 36,
+      "content": "Vendor V-0009 exception thresholds policy v3.6. Amount tolerance: 2%. Quantity tolerance: 0%.",
+      "metadata": {
+        "policy_scope": "exception_thresholds",
+        "thresholds": {
+          "amount_pct": 0.02,
+          "quantity_pct": 0.0,
+          "tax_pct": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00149",
+      "evidence_type": "vendor_policy",
+      "scope": "discount_rules",
+      "scope_target": "V-0019",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-06-23",
+      "effective_until": "2026-10-31",
+      "policy_version": "v1.3",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 76,
+      "content": "Vendor V-0019 discount rules policy v1.3. Max early payment discount: 2%. Volume discounts per contract.",
+      "metadata": {
+        "policy_scope": "discount_rules",
+        "thresholds": {
+          "max_early_discount": 0.02,
+          "volume_discount_tiers": [
+            0.01,
+            0.02,
+            0.03
+          ]
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00150",
+      "evidence_type": "vendor_policy",
+      "scope": "payment_terms",
+      "scope_target": "V-0002",
+      "vendor_id": "V-0002",
+      "effective_from": "2024-07-28",
+      "effective_until": "2025-11-28",
+      "policy_version": "v2.2",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 37,
+      "content": "Vendor V-0002 payment terms policy v2.2. Standard terms: Net 30. Early payment discount: 2% Net 10.",
+      "metadata": {
+        "policy_scope": "payment_terms",
+        "thresholds": {
+          "net_days": 30,
+          "early_discount_pct": 2,
+          "early_days": 10
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00151",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0011-2965",
+      "vendor_id": "V-0011",
+      "effective_from": "2023-01-16",
+      "effective_until": "2025-06-08",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 44,
+      "content": "Contract CTR-V-0011-2965 for vendor V-0011. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0011-2965",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00152",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0005-7229",
+      "vendor_id": "V-0005",
+      "effective_from": "2025-12-26",
+      "effective_until": "2028-12-15",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 18,
+      "content": "Contract CTR-V-0005-7229 for vendor V-0005. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0005-7229",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00153",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0013-1693",
+      "vendor_id": "V-0013",
+      "effective_from": "2025-06-12",
+      "effective_until": "2026-07-01",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 80,
+      "content": "Contract CTR-V-0013-1693 for vendor V-0013. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0013-1693",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00154",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0019-8033",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-04-08",
+      "effective_until": "2028-04-03",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 74,
+      "content": "Contract CTR-V-0019-8033 for vendor V-0019. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0019-8033",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00155",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0004-7636",
+      "vendor_id": "V-0004",
+      "effective_from": "2023-02-12",
+      "effective_until": "2025-01-09",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 176,
+      "content": "Contract CTR-V-0004-7636 for vendor V-0004. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0004-7636",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00156",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0012-2443",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-06-13",
+      "effective_until": "2026-09-29",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 150,
+      "content": "Contract CTR-V-0012-2443 for vendor V-0012. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0012-2443",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00157",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0013-9584",
+      "vendor_id": "V-0013",
+      "effective_from": "2023-06-11",
+      "effective_until": "2025-07-20",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 56,
+      "content": "Contract CTR-V-0013-9584 for vendor V-0013. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0013-9584",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00158",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0011-3754",
+      "vendor_id": "V-0011",
+      "effective_from": "2023-06-06",
+      "effective_until": "2025-11-09",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 135,
+      "content": "Contract CTR-V-0011-3754 for vendor V-0011. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0011-3754",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00159",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0017-4176",
+      "vendor_id": "V-0017",
+      "effective_from": "2024-12-16",
+      "effective_until": "2026-12-10",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 60,
+      "content": "Contract CTR-V-0017-4176 for vendor V-0017. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0017-4176",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00160",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0004-3399",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-06-08",
+      "effective_until": "2025-12-27",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 194,
+      "content": "Contract CTR-V-0004-3399 for vendor V-0004. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0004-3399",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00161",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0003-3902",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-10-08",
+      "effective_until": "2028-01-26",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 174,
+      "content": "Contract CTR-V-0003-3902 for vendor V-0003. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0003-3902",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00162",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0019-6295",
+      "vendor_id": "V-0019",
+      "effective_from": "2024-10-09",
+      "effective_until": "2026-03-12",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 120,
+      "content": "Contract CTR-V-0019-6295 for vendor V-0019. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0019-6295",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00163",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0015-5961",
+      "vendor_id": "V-0015",
+      "effective_from": "2024-07-16",
+      "effective_until": "2027-03-13",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 129,
+      "content": "Contract CTR-V-0015-5961 for vendor V-0015. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0015-5961",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00164",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0003-6085",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-08-03",
+      "effective_until": "2027-11-08",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 94,
+      "content": "Contract CTR-V-0003-6085 for vendor V-0003. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0003-6085",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00165",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0010-2257",
+      "vendor_id": "V-0010",
+      "effective_from": "2023-07-04",
+      "effective_until": "2026-03-24",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 118,
+      "content": "Contract CTR-V-0010-2257 for vendor V-0010. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0010-2257",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00166",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0019-1672",
+      "vendor_id": "V-0019",
+      "effective_from": "2025-07-10",
+      "effective_until": "2028-02-15",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 82,
+      "content": "Contract CTR-V-0019-1672 for vendor V-0019. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0019-1672",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00167",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0020-8792",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-10-23",
+      "effective_until": "2027-03-26",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 26,
+      "content": "Contract CTR-V-0020-8792 for vendor V-0020. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0020-8792",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00168",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0011-2381",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-10-30",
+      "effective_until": "2028-08-21",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 63,
+      "content": "Contract CTR-V-0011-2381 for vendor V-0011. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0011-2381",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00169",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0015-8199",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-12-09",
+      "effective_until": "2028-05-27",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 93,
+      "content": "Contract CTR-V-0015-8199 for vendor V-0015. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0015-8199",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00170",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0012-5634",
+      "vendor_id": "V-0012",
+      "effective_from": "2025-03-04",
+      "effective_until": "2027-04-26",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 161,
+      "content": "Contract CTR-V-0012-5634 for vendor V-0012. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0012-5634",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00171",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0011-2079",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-11-06",
+      "effective_until": "2026-02-10",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 72,
+      "content": "Contract CTR-V-0011-2079 for vendor V-0011. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0011-2079",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00172",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0009-3463",
+      "vendor_id": "V-0009",
+      "effective_from": "2024-11-13",
+      "effective_until": "2026-02-04",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 89,
+      "content": "Contract CTR-V-0009-3463 for vendor V-0009. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0009-3463",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00173",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0010-7421",
+      "vendor_id": "V-0010",
+      "effective_from": "2023-09-22",
+      "effective_until": "2026-05-23",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 79,
+      "content": "Contract CTR-V-0010-7421 for vendor V-0010. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0010-7421",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00174",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0018-7171",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-11-03",
+      "effective_until": "2026-03-13",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 165,
+      "content": "Contract CTR-V-0018-7171 for vendor V-0018. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0018-7171",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00175",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0014-9331",
+      "vendor_id": "V-0014",
+      "effective_from": "2025-01-11",
+      "effective_until": "2026-01-29",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 46,
+      "content": "Contract CTR-V-0014-9331 for vendor V-0014. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0014-9331",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00176",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0007-6598",
+      "vendor_id": "V-0007",
+      "effective_from": "2025-09-22",
+      "effective_until": "2027-04-06",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 39,
+      "content": "Contract CTR-V-0007-6598 for vendor V-0007. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0007-6598",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00177",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0003-5846",
+      "vendor_id": "V-0003",
+      "effective_from": "2023-07-27",
+      "effective_until": "2025-12-27",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 169,
+      "content": "Contract CTR-V-0003-5846 for vendor V-0003. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v3.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0003-5846",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00178",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0011-3147",
+      "vendor_id": "V-0011",
+      "effective_from": "2025-02-10",
+      "effective_until": "2026-07-17",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 177,
+      "content": "Contract CTR-V-0011-3147 for vendor V-0011. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0011-3147",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00179",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0020-3712",
+      "vendor_id": "V-0020",
+      "effective_from": "2025-06-15",
+      "effective_until": "2026-07-29",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 173,
+      "content": "Contract CTR-V-0020-3712 for vendor V-0020. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v2.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0020-3712",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00180",
+      "evidence_type": "contract",
+      "scope": "contractual_terms",
+      "scope_target": "CTR-V-0008-8277",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-08-06",
+      "effective_until": "2026-11-08",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 79,
+      "content": "Contract CTR-V-0008-8277 for vendor V-0008. Terms: Net 30 payment, 2% early payment discount, volume discounts at 10k/50k/100k thresholds. Exception tolerance: amount 2%, quantity 0%, tax 1%. Governing law: State of Delaware. Version v1.0.",
+      "metadata": {
+        "contract_id": "CTR-V-0008-8277",
+        "payment_terms": "Net 30",
+        "early_discount": "2% Net 10",
+        "exception_tolerances": {
+          "amount": 0.02,
+          "quantity": 0.0,
+          "tax": 0.01
+        }
+      }
+    },
+    {
+      "evidence_id": "EV-00181",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0016",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-07-17",
+      "effective_until": "2025-04-17",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 257,
+      "content": "Payment terms for vendor V-0016. Net 60 days. Early payment discount: 2% if paid within 10 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 60,
+        "early_discount_pct": 2,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00182",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0017",
+      "vendor_id": "V-0017",
+      "effective_from": "2025-03-04",
+      "effective_until": "2025-10-11",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 246,
+      "content": "Payment terms for vendor V-0017. Net 45 days. Early payment discount: 1% if paid within 15 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 1,
+        "early_days": 15,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00183",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0012",
+      "vendor_id": "V-0012",
+      "effective_from": "2024-04-15",
+      "effective_until": "2025-04-12",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 139,
+      "content": "Payment terms for vendor V-0012. Net 45 days. Early payment discount: 1% if paid within 5 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 1,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00184",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0015",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-06-09",
+      "effective_until": "2026-01-12",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 476,
+      "content": "Payment terms for vendor V-0015. Net 30 days. Early payment discount: 2% if paid within 10 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 30,
+        "early_discount_pct": 2,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00185",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2025-02-28",
+      "effective_until": "2025-09-09",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 191,
+      "content": "Payment terms for vendor V-0001. Net 30 days. Early payment discount: 2% if paid within 5 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 30,
+        "early_discount_pct": 2,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00186",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0008",
+      "vendor_id": "V-0008",
+      "effective_from": "2024-01-29",
+      "effective_until": "2024-10-16",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 146,
+      "content": "Payment terms for vendor V-0008. Net 30 days. Early payment discount: 1% if paid within 5 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 30,
+        "early_discount_pct": 1,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00187",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0016",
+      "vendor_id": "V-0016",
+      "effective_from": "2024-05-22",
+      "effective_until": "2025-05-17",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 131,
+      "content": "Payment terms for vendor V-0016. Net 15 days. Early payment discount: 1% if paid within 5 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 15,
+        "early_discount_pct": 1,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00188",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0007",
+      "vendor_id": "V-0007",
+      "effective_from": "2024-06-02",
+      "effective_until": "2025-04-18",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 154,
+      "content": "Payment terms for vendor V-0007. Net 15 days. Early payment discount: 2% if paid within 5 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 15,
+        "early_discount_pct": 2,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00189",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-02-18",
+      "effective_until": "2024-10-16",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 305,
+      "content": "Payment terms for vendor V-0004. Net 15 days. Early payment discount: 1% if paid within 10 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 15,
+        "early_discount_pct": 1,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00190",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0018",
+      "vendor_id": "V-0018",
+      "effective_from": "2024-01-17",
+      "effective_until": "2024-12-23",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 0,
+      "content": "Payment terms for vendor V-0018. Net 30 days. Early payment discount: 2% if paid within 10 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 30,
+        "early_discount_pct": 2,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00191",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0020",
+      "vendor_id": "V-0020",
+      "effective_from": "2024-12-27",
+      "effective_until": "2025-08-25",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 43,
+      "content": "Payment terms for vendor V-0020. Net 30 days. Early payment discount: 3% if paid within 15 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 30,
+        "early_discount_pct": 3,
+        "early_days": 15,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00192",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0017",
+      "vendor_id": "V-0017",
+      "effective_from": "2025-01-04",
+      "effective_until": "2025-07-20",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 325,
+      "content": "Payment terms for vendor V-0017. Net 60 days. Early payment discount: 2% if paid within 5 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 60,
+        "early_discount_pct": 2,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00193",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2025-01-17",
+      "effective_until": "2025-09-18",
+      "policy_version": "v3.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 123,
+      "content": "Payment terms for vendor V-0013. Net 45 days. Early payment discount: 1% if paid within 10 days. Late fee: 1.5% per month after due date. Version v3.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 1,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00194",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0004",
+      "vendor_id": "V-0004",
+      "effective_from": "2024-12-06",
+      "effective_until": "2025-07-08",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "regulatory",
+      "usage_count": 425,
+      "content": "Payment terms for vendor V-0004. Net 45 days. Early payment discount: 3% if paid within 5 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 3,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00195",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0015",
+      "vendor_id": "V-0015",
+      "effective_from": "2025-05-05",
+      "effective_until": "2026-04-11",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 18,
+      "content": "Payment terms for vendor V-0015. Net 15 days. Early payment discount: 3% if paid within 10 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 15,
+        "early_discount_pct": 3,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00196",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0010",
+      "vendor_id": "V-0010",
+      "effective_from": "2024-07-25",
+      "effective_until": "2025-02-01",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "internal",
+      "usage_count": 203,
+      "content": "Payment terms for vendor V-0010. Net 45 days. Early payment discount: 2% if paid within 15 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 2,
+        "early_days": 15,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00197",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0018",
+      "vendor_id": "V-0018",
+      "effective_from": "2025-04-29",
+      "effective_until": "2025-12-29",
+      "policy_version": "v1.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 443,
+      "content": "Payment terms for vendor V-0018. Net 45 days. Early payment discount: 2% if paid within 5 days. Late fee: 1.5% per month after due date. Version v1.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 2,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00198",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0011",
+      "vendor_id": "V-0011",
+      "effective_from": "2024-10-06",
+      "effective_until": "2025-05-05",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 458,
+      "content": "Payment terms for vendor V-0011. Net 60 days. Early payment discount: 3% if paid within 10 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 60,
+        "early_discount_pct": 3,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00199",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0013",
+      "vendor_id": "V-0013",
+      "effective_from": "2024-12-13",
+      "effective_until": "2025-07-28",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "contractual",
+      "usage_count": 410,
+      "content": "Payment terms for vendor V-0013. Net 45 days. Early payment discount: 3% if paid within 10 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 3,
+        "early_days": 10,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00200",
+      "evidence_type": "payment_term",
+      "scope": "payment_terms",
+      "scope_target": "V-0003",
+      "vendor_id": "V-0003",
+      "effective_from": "2025-03-10",
+      "effective_until": "2025-09-26",
+      "policy_version": "v2.0",
+      "outcome": "ACTIVE",
+      "source_authority": "external",
+      "usage_count": 40,
+      "content": "Payment terms for vendor V-0003. Net 45 days. Early payment discount: 2% if paid within 5 days. Late fee: 1.5% per month after due date. Version v2.0.",
+      "metadata": {
+        "net_days": 45,
+        "early_discount_pct": 2,
+        "early_days": 5,
+        "late_fee_pct": 1.5
+      }
+    },
+    {
+      "evidence_id": "EV-00201",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00202",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00203",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00204",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00205",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00206",
+      "evidence_type": "vendor_policy",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00207",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00208",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00209",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00210",
+      "evidence_type": "historical_resolution",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00211",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00212",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00213",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00214",
+      "evidence_type": "historical_resolution",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00215",
+      "evidence_type": "historical_resolution",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00216",
+      "evidence_type": "payment_term",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00217",
+      "evidence_type": "contract",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00218",
+      "evidence_type": "vendor_policy",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00219",
+      "evidence_type": "historical_resolution",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00220",
+      "evidence_type": "vendor_policy",
+      "scope": "irrelevant",
+      "scope_target": "N/A",
+      "vendor_id": null,
+      "effective_from": "2020-01-01",
+      "effective_until": "2021-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This is deliberately irrelevant evidence for testing filtering.",
+      "metadata": {
+        "test_only": true
+      }
+    },
+    {
+      "evidence_id": "EV-00221",
+      "evidence_type": "payment_term",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00222",
+      "evidence_type": "historical_resolution",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00223",
+      "evidence_type": "vendor_policy",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00224",
+      "evidence_type": "historical_resolution",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00225",
+      "evidence_type": "vendor_policy",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00226",
+      "evidence_type": "contract",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00227",
+      "evidence_type": "contract",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00228",
+      "evidence_type": "payment_term",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00229",
+      "evidence_type": "historical_resolution",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00230",
+      "evidence_type": "vendor_policy",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00231",
+      "evidence_type": "payment_term",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00232",
+      "evidence_type": "contract",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00233",
+      "evidence_type": "contract",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00234",
+      "evidence_type": "payment_term",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    },
+    {
+      "evidence_id": "EV-00235",
+      "evidence_type": "historical_resolution",
+      "scope": "stale_test",
+      "scope_target": "V-0001",
+      "vendor_id": "V-0001",
+      "effective_from": "2022-01-01",
+      "effective_until": "2022-12-31",
+      "policy_version": "v1.0",
+      "outcome": "EXPIRED",
+      "source_authority": "internal",
+      "usage_count": 0,
+      "content": "This evidence is stale (effective_until in the past) for testing date filtering.",
+      "metadata": {
+        "test_stale": true
+      }
+    }
+  ]
+}
