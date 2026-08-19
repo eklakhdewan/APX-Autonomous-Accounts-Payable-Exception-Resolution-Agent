@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from apx.config.settings import get_settings
+from apx.evidence.dates import APX_REFERENCE_DATE
 from apx.evidence.schemas import (
     Evidence,
     EvidenceType,
@@ -18,10 +19,28 @@ from apx.evidence.schemas import (
 
 
 class EvidenceCorpusGenerator:
-    def __init__(self, seed: int = 42):
+    CANONICAL_EXCEPTION_TYPES = [
+        "AMOUNT_MISMATCH", "GRN_MISMATCH", "VENDOR_MISMATCH", "TAX_ERROR", "CREDIT_ISSUE",
+        "PO_MISMATCH", "CURRENCY_MISMATCH", "LINE_ITEM_MISMATCH", "DISCOUNT_ERROR", "DUPLICATE_INVOICE",
+    ]
+    SEMANTIC_POLICY_TEMPLATES = [
+        ("amount_tolerance", "AMOUNT_MISMATCH", "Invoice total must remain within the approved amount tolerance for this vendor."),
+        ("goods_receipt_matching", "GRN_MISMATCH", "Invoice quantities must match the goods receipt recorded for the purchase order."),
+        ("vendor_identity", "VENDOR_MISMATCH", "Invoice vendor identity must match the vendor authorized for the purchase order."),
+        ("tax_validation", "TAX_ERROR", "Tax calculation and exemption status must match the approved vendor tax profile."),
+        ("credit_controls", "CREDIT_ISSUE", "Credit holds and credit limits must be resolved before invoice payment."),
+        ("purchase_order_matching", "PO_MISMATCH", "PO validation policy requires the invoice PO reference to match the vendor's authorized purchase order."),
+        ("currency_matching", "CURRENCY_MISMATCH", "Vendor invoices must use the approved currency, and PO currency must match."),
+        ("line_item_matching", "LINE_ITEM_MISMATCH", "Invoice line items must match the authorized purchase order descriptions and prices."),
+        ("discount_validation", "DISCOUNT_ERROR", "Contract discounts must match the approved discount terms for the invoice."),
+        ("duplicate_invoice_control", "DUPLICATE_INVOICE", "Duplicate invoice control identifies repeated vendor and invoice-number combinations."),
+    ]
+
+    def __init__(self, seed: int = 42, reference_date: date | None = None):
         self.seed = seed
         self.rng = random.Random(seed)
         self.settings = get_settings()
+        self.reference_date = reference_date or APX_REFERENCE_DATE
         self.evidence: list[Evidence] = []
         self._evidence_id_seq = 0
 
@@ -53,7 +72,9 @@ class EvidenceCorpusGenerator:
         for _ in range(count):
             vendor_id = self.rng.choice(vendors)
             exception_code = self.rng.choice(exception_codes)
-            effective_from = self._random_date(date(2024, 1, 1), date(2025, 12, 31))
+            effective_from = self._random_date(
+                self.reference_date - timedelta(days=730), self.reference_date
+            )
             effective_until = effective_from + timedelta(days=self.rng.randint(30, 365))
             policy_version = f"v{self.rng.randint(1, 5)}.{self.rng.randint(0, 9)}"
             outcome = self.rng.choice(outcomes)
@@ -83,6 +104,7 @@ class EvidenceCorpusGenerator:
                     "exception_code": exception_code,
                     "resolution_action": self._generate_resolution_action(exception_code, outcome),
                 },
+                applicable_exception_types=[exception_code],
             )
             self.evidence.append(evidence)
             resolutions.append(evidence)
@@ -112,15 +134,31 @@ class EvidenceCorpusGenerator:
         authorities = list(SourceAuthority)
         policies = []
 
-        for _ in range(count):
-            vendor_id = self.rng.choice(vendors)
-            scope = self.rng.choice(policy_scopes)
-            effective_from = self._random_date(date(2024, 1, 1), date(2025, 6, 30))
-            effective_until = effective_from + timedelta(days=self.rng.randint(180, 730))
+        for index in range(count):
+            if index < min(len(vendors), len(self.SEMANTIC_POLICY_TEMPLATES)):
+                scope, exception_code, semantic_rule = self.SEMANTIC_POLICY_TEMPLATES[index]
+                vendor_id = vendors[index]
+            else:
+                vendor_id = self.rng.choice(vendors)
+                scope = self.rng.choice(policy_scopes)
+                exception_code = None
+                semantic_rule = None
+            effective_from = self._random_date(
+                self.reference_date - timedelta(days=546), self.reference_date
+            )
+            effective_until = (
+                self.reference_date + timedelta(days=365)
+                if semantic_rule
+                else effective_from + timedelta(days=self.rng.randint(180, 730))
+            )
             policy_version = f"v{self.rng.randint(1, 5)}.{self.rng.randint(0, 9)}"
             authority = self.rng.choice(authorities)
 
-            content = self._generate_policy_content(vendor_id, scope, policy_version)
+            content = (
+                f"Vendor {vendor_id} {scope} policy {policy_version}. {semantic_rule}"
+                if semantic_rule
+                else self._generate_policy_content(vendor_id, scope, policy_version)
+            )
 
             evidence = Evidence(
                 evidence_id=self._next_evidence_id(),
@@ -139,10 +177,19 @@ class EvidenceCorpusGenerator:
                     "policy_scope": scope,
                     "thresholds": self._generate_thresholds(scope),
                 },
+                applicable_exception_types=[exception_code] if exception_code else self._policy_applicability(scope),
             )
             self.evidence.append(evidence)
             policies.append(evidence)
         return policies
+
+    def _policy_applicability(self, scope: str) -> list[str]:
+        return {
+            "payment_terms": ["DISCOUNT_ERROR"],
+            "credit_limits": ["CREDIT_ISSUE"],
+            "discount_rules": ["DISCOUNT_ERROR"],
+            "exception_thresholds": ["AMOUNT_MISMATCH"],
+        }.get(scope, [])
 
     def _generate_policy_content(self, vendor_id: str, scope: str, version: str) -> str:
         templates = {
@@ -172,7 +219,9 @@ class EvidenceCorpusGenerator:
         for _ in range(count):
             vendor_id = self.rng.choice(vendors)
             contract_id = f"CTR-{vendor_id}-{self.rng.randint(1000, 9999)}"
-            effective_from = self._random_date(date(2023, 1, 1), date(2025, 12, 31))
+            effective_from = self._random_date(
+                self.reference_date - timedelta(days=1095), self.reference_date
+            )
             effective_until = effective_from + timedelta(days=self.rng.randint(365, 1095))
             policy_version = f"v{self.rng.randint(1, 3)}.0"
             authority = self.rng.choice(authorities)
@@ -204,6 +253,7 @@ class EvidenceCorpusGenerator:
                     "early_discount": "2% Net 10",
                     "exception_tolerances": {"amount": 0.02, "quantity": 0.0, "tax": 0.01},
                 },
+                applicable_exception_types=[],
             )
             self.evidence.append(evidence)
             contracts.append(evidence)
@@ -219,7 +269,9 @@ class EvidenceCorpusGenerator:
 
         for _ in range(count):
             vendor_id = self.rng.choice(vendors)
-            effective_from = self._random_date(date(2024, 1, 1), date(2025, 6, 30))
+            effective_from = self._random_date(
+                self.reference_date - timedelta(days=546), self.reference_date
+            )
             effective_until = effective_from + timedelta(days=self.rng.randint(180, 365))
             policy_version = f"v{self.rng.randint(1, 3)}.0"
             authority = self.rng.choice(authorities)
@@ -253,6 +305,7 @@ class EvidenceCorpusGenerator:
                     "early_days": early_days,
                     "late_fee_pct": 1.5,
                 },
+                applicable_exception_types=["DISCOUNT_ERROR"],
             )
             self.evidence.append(evidence)
             terms.append(evidence)
@@ -261,20 +314,26 @@ class EvidenceCorpusGenerator:
     def generate_irrelevant_evidence(self, count: int = 20) -> list[Evidence]:
         irrelevant = []
         for _ in range(count):
+            evidence_type = self.rng.choice(list(EvidenceType))
+            exception_code = self.rng.choice(self.CANONICAL_EXCEPTION_TYPES)
             evidence = Evidence(
                 evidence_id=self._next_evidence_id(),
-                evidence_type=self.rng.choice(list(EvidenceType)),
+                evidence_type=evidence_type,
                 scope="irrelevant",
                 scope_target="N/A",
                 vendor_id=None,
-                effective_from=date(2020, 1, 1),
-                effective_until=date(2021, 12, 31),
+                effective_from=self.reference_date - timedelta(days=2192),
+                effective_until=self.reference_date - timedelta(days=1462),
                 policy_version="v1.0",
                 outcome="EXPIRED",
                 source_authority=SourceAuthority.INTERNAL,
                 usage_count=0,
                 content="This is deliberately irrelevant evidence for testing filtering.",
-                metadata={"test_only": True},
+                metadata={
+                    "test_only": True,
+                    **({"exception_code": exception_code} if evidence_type == EvidenceType.HISTORICAL_RESOLUTION else {}),
+                },
+                applicable_exception_types=[exception_code] if evidence_type == EvidenceType.HISTORICAL_RESOLUTION else [],
             )
             self.evidence.append(evidence)
             irrelevant.append(evidence)
@@ -283,20 +342,26 @@ class EvidenceCorpusGenerator:
     def generate_stale_evidence(self, count: int = 15) -> list[Evidence]:
         stale = []
         for _ in range(count):
+            evidence_type = self.rng.choice(list(EvidenceType))
+            exception_code = self.rng.choice(self.CANONICAL_EXCEPTION_TYPES)
             evidence = Evidence(
                 evidence_id=self._next_evidence_id(),
-                evidence_type=self.rng.choice(list(EvidenceType)),
+                evidence_type=evidence_type,
                 scope="stale_test",
                 scope_target="V-0001",
                 vendor_id="V-0001",
-                effective_from=date(2022, 1, 1),
-                effective_until=date(2022, 12, 31),
+                effective_from=self.reference_date - timedelta(days=1462),
+                effective_until=self.reference_date - timedelta(days=1097),
                 policy_version="v1.0",
                 outcome="EXPIRED",
                 source_authority=SourceAuthority.INTERNAL,
                 usage_count=0,
                 content="This evidence is stale (effective_until in the past) for testing date filtering.",
-                metadata={"test_stale": True},
+                metadata={
+                    "test_stale": True,
+                    **({"exception_code": exception_code} if evidence_type == EvidenceType.HISTORICAL_RESOLUTION else {}),
+                },
+                applicable_exception_types=[exception_code] if evidence_type == EvidenceType.HISTORICAL_RESOLUTION else [],
             )
             self.evidence.append(evidence)
             stale.append(evidence)
@@ -322,7 +387,11 @@ class EvidenceCorpusGenerator:
         return self.export()
 
     def export(self) -> dict:
-        return {"evidence": [e.model_dump(mode="json") for e in self.evidence]}
+        return {
+            "reference_date": self.reference_date.isoformat(),
+            "generated_at": self.reference_date.isoformat(),
+            "evidence": [e.model_dump(mode="json") for e in self.evidence],
+        }
 
     def save(self, base_dir: Path | None = None):
         if base_dir is None:
@@ -338,10 +407,16 @@ class EvidenceCorpusGenerator:
 def main():
     parser = argparse.ArgumentParser(description="Generate synthetic evidence corpus")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
+    parser.add_argument(
+        "--reference-date",
+        type=date.fromisoformat,
+        default=APX_REFERENCE_DATE,
+        help=f"Temporal anchor for evidence validity windows (default: {APX_REFERENCE_DATE.isoformat()})",
+    )
     parser.add_argument("--output-dir", type=str, help="Output directory")
     args = parser.parse_args()
 
-    generator = EvidenceCorpusGenerator(seed=args.seed)
+    generator = EvidenceCorpusGenerator(seed=args.seed, reference_date=args.reference_date)
     generator.generate_all(
         vendors=[f"V-{i:04d}" for i in range(1, 21)],
         exception_codes=[

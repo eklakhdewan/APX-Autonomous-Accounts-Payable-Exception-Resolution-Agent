@@ -55,10 +55,10 @@ class MockLLMProvider(LLMProvider):
         
         # Determine outcome based on available evidence
         valid_evidence = [e for e in evidence_summaries if e.get("validity_status") == "valid"]
-        highly_relevant = [e for e in valid_evidence if e.get("relevance_score", 0) > 0.7]
+        highly_relevant = [e for e in valid_evidence if e.get("relevance_score", 0) > 0.3]
         
-        if highly_relevant and self._call_count >= 2:
-            # After 2+ steps with relevant evidence, propose resolution
+        if highly_relevant and self._call_count >= 1:
+            # After 1+ steps with relevant evidence, propose resolution
             if exception_type in ["AMOUNT_MISMATCH", "GRN_MISMATCH", "TAX_ERROR", "DISCOUNT_ERROR"]:
                 return InvestigationFindings(
                     findings=f"Found {len(highly_relevant)} highly relevant valid evidence items supporting {exception_type} resolution.",

@@ -333,7 +333,7 @@ class SyntheticGenerator:
         ExceptionCode.CREDIT_ISSUE: "_inject_credit_issue",
     }
 
-    def generate_invoices(self, count: int) -> list[Invoice]:
+    def generate_invoices(self, count: int, multi_exception_rate: float = 0.1) -> list[Invoice]:
         if not self.purchase_orders:
             raise ValueError("Must generate POs first")
 
@@ -439,6 +439,30 @@ class SyntheticGenerator:
                 if details:
                     injected_exceptions[exc_code.value] = details
                     expected_exceptions.append(exc_code)
+
+            # Optionally inject a second exception for multi-exception combinations
+            if (inject_exception and exc_code and expected_exceptions and
+                self.rng.random() < multi_exception_rate and
+                exc_code != ExceptionCode.DUPLICATE_INVOICE):
+                # Pick a second compatible exception
+                remaining_codes = [c for c in exception_codes if c != exc_code and c != ExceptionCode.DUPLICATE_INVOICE]
+                if remaining_codes:
+                    second_exc = self.rng.choice(remaining_codes)
+                    second_injector = getattr(self, self._INJECTORS[second_exc])
+                    if second_exc in (ExceptionCode.GRN_MISMATCH,):
+                        second_details = second_injector(clean_invoice, grn)
+                    elif second_exc in (ExceptionCode.VENDOR_MISMATCH, ExceptionCode.PO_MISMATCH, ExceptionCode.CURRENCY_MISMATCH):
+                        second_details = second_injector(clean_invoice, vendor)
+                    elif second_exc in (ExceptionCode.LINE_ITEM_MISMATCH,):
+                        second_details = second_injector(clean_invoice, po)
+                    elif second_exc in (ExceptionCode.CREDIT_ISSUE,):
+                        second_details = second_injector(vendor)
+                    else:
+                        second_details = second_injector(clean_invoice)
+
+                    if second_details:
+                        injected_exceptions[second_exc.value] = second_details
+                        expected_exceptions.append(second_exc)
 
             self.invoices.append(clean_invoice)
             self.ground_truth.append(GroundTruth(

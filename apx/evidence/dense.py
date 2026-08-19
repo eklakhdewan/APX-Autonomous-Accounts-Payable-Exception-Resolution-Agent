@@ -41,12 +41,14 @@ class DenseRetriever:
         max_seq_length: int = 512,
         corpus_path: Path | None = None,
         index_cache_path: Path | None = None,
+        local_files_only: bool = False,
     ):
         self.model_name = model_name
         self.device = device
         self.top_k = top_k
         self.batch_size = batch_size
         self.max_seq_length = max_seq_length
+        self.local_files_only = local_files_only
         self.settings = get_settings()
         self.corpus_path = corpus_path or self.settings.get_corpus_path()
         self.index_cache_path = index_cache_path or self.settings.get_index_cache_path()
@@ -56,7 +58,7 @@ class DenseRetriever:
 
     def _load_model(self):
         if self.model is None:
-            self.model = SentenceTransformer(self.model_name, device=self.device)
+            self.model = SentenceTransformer(self.model_name, device=self.device, local_files_only=self.local_files_only)
             self.model.max_seq_length = self.max_seq_length
 
     def load_corpus(self) -> list[Evidence]:

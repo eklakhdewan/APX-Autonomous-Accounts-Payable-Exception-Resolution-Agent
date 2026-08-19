@@ -9,14 +9,13 @@ This script:
 4. Does NOT use retrieval results to construct ground truth
 """
 import json
-import random
 import argparse
 from datetime import date
 from pathlib import Path
 from typing import Any
-from collections import defaultdict
 
 from apx.config.settings import get_settings
+from apx.evidence.dates import APX_REFERENCE_DATE
 from apx.evidence.schemas import Evidence, EvidenceType, SourceAuthority, ValidityStatus
 from apx.data.schemas import ExceptionCode
 
@@ -105,6 +104,39 @@ def check_evidence_validity(evidence: dict, invoice_vendor_id: str, reference_da
     return is_valid, reasons
 
 
+def _normalise_exception_list(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value.upper()] if value else []
+    items = []
+    for item in value:
+        if item is None:
+            continue
+        text = str(item).strip().upper()
+        if text:
+            items.append(text)
+    return list(dict.fromkeys(items))
+
+
+def evidence_matches_exception(evidence: dict[str, Any], exception_type: str) -> bool:
+    metadata_exception = evidence.get("metadata", {}).get("exception_code")
+    if metadata_exception:
+        return str(metadata_exception).upper() == str(exception_type).upper()
+    applicable = _normalise_exception_list(evidence.get("applicable_exception_types", []))
+    return str(exception_type).upper() in applicable
+
+
+def evidence_applies_to_case(evidence: dict[str, Any], case_exception_type: str) -> bool:
+    if evidence.get("evidence_type") == "historical_resolution":
+        return evidence_matches_exception(evidence, case_exception_type)
+
+    applicable = _normalise_exception_list(evidence.get("applicable_exception_types", []))
+    if not applicable:
+        return False
+    return str(case_exception_type).upper() in applicable
+
+
 def determine_labels_for_case(
     case: dict[str, Any],
     evidence_corpus: dict[str, dict],
@@ -112,104 +144,47 @@ def determine_labels_for_case(
 ) -> tuple[list[str], list[str], list[str]]:
     """
     Determine relevant, irrelevant, and invalid evidence IDs for a case.
-    
-    Ground truth is derived from the evidence corpus and case intent, NOT from retrieval.
+
+    Ground truth is deterministic and requires temporal validity, correct vendor/scope,
+    and explicit exception applicability. It intentionally does not use retrieval rankings
+    or any randomized sampling.
     """
     vendor_id = case["vendor_id"]
     exception_type = case["exception_type"]
-    
-    # Get all evidence for this vendor
-    vendor_evidence = {eid: ev for eid, ev in evidence_corpus.items() if ev.get("vendor_id") == vendor_id}
-    other_vendor_evidence = [eid for eid, ev in evidence_corpus.items() if ev.get("vendor_id") != vendor_id]
-    
+
     relevant = set()
     irrelevant = set()
     invalid = set()
-    
-    # Map exception types to highly-relevant historical resolution codes
-    exception_relevance_map = {
-        "AMOUNT_MISMATCH": {"AMOUNT_MISMATCH"},
-        "GRN_MISMATCH": {"GRN_MISMATCH"},
-        "VENDOR_MISMATCH": {"VENDOR_MISMATCH"},
-        "TAX_ERROR": {"TAX_ERROR"},
-        "CREDIT_ISSUE": {"CREDIT_ISSUE"},
-        "PO_MISMATCH": {"PO_MISMATCH"},
-        "CURRENCY_MISMATCH": {"CURRENCY_MISMATCH"},
-        "LINE_ITEM_MISMATCH": {"LINE_ITEM_MISMATCH"},
-        "DISCOUNT_ERROR": {"DISCOUNT_ERROR"},
-        "DUPLICATE_INVOICE": {"DUPLICATE_INVOICE"},
-    }
-    
-    highly_relevant_codes = exception_relevance_map.get(exception_type, set())
-    
-    for eid, ev in vendor_evidence.items():
-        # Determine validity
-        is_valid, reasons = check_evidence_validity(ev, case["vendor_id"], reference_date)
-        
+
+    for eid, ev in sorted(evidence_corpus.items()):
+        is_valid, _ = check_evidence_validity(ev, vendor_id, reference_date)
+
         if not is_valid:
             invalid.add(eid)
+            continue
+
+        if ev.get("vendor_id") and ev["vendor_id"] != vendor_id:
+            irrelevant.add(eid)
+            continue
+
+        if ev.get("evidence_type") == "historical_resolution":
+            is_relevant = evidence_matches_exception(ev, exception_type)
         else:
-            # Determine relevance level
-            is_highly_relevant = False
-            is_relevant = False
-            
-            if ev["evidence_type"] == "historical_resolution" and ev["scope"] == "vendor_exception":
-                meta_exception = ev.get("metadata", {}).get("exception_code")
-                if meta_exception in highly_relevant_codes:
-                    is_highly_relevant = True
-                else:
-                    # Other historical resolutions show vendor's resolution patterns
-                    is_relevant = True
-                    
-            elif ev["evidence_type"] == "vendor_policy":
-                # All vendor policies are relevant for understanding vendor's policies
-                is_relevant = True
-                    
-            elif ev["evidence_type"] == "contract":
-                if ev["scope"] == "contractual_terms":
-                    is_relevant = True
-                elif ev["scope"] == "stale_test":
-                    # Stale test contracts are invalid (already caught)
-                    pass
-                else:
-                    # Other contract scopes
-                    is_relevant = True
-                    
-            elif ev["evidence_type"] == "payment_term":
-                if ev["scope"] == "payment_terms":
-                    is_relevant = True
-                elif ev["scope"] == "stale_test":
-                    # Stale test payment terms are invalid (already caught)
-                    pass
-                else:
-                    is_relevant = True
-            
-            if is_highly_relevant or is_relevant:
-                relevant.add(eid)
-            else:
-                irrelevant.add(eid)
-    
-    # Cross-vendor evidence is irrelevant (simulates retrieval noise)
-    rng = random.Random(hash(case["case_id"]) % (2**32))
-    other_vendor_evidence = [eid for eid, ev in evidence_corpus.items() if ev.get("vendor_id") != case["vendor_id"]]
-    other_irrelevant = rng.sample(other_vendor_evidence, min(10, len(other_vendor_evidence)))
-    irrelevant.update(other_irrelevant)
-    
-    # Also add test noise evidence (scope=irrelevant) as irrelevant
-    test_noise_evidence = [eid for eid, ev in evidence_corpus.items() if ev.get("scope") == "irrelevant" and ev.get("vendor_id") is None]
-    rng2 = random.Random((hash(case["case_id"]) + 1) % (2**32))
-    irrelevant.update(rng2.sample(test_noise_evidence, min(5, len(test_noise_evidence))))
-    
-    # Convert to sorted lists
+            is_relevant = evidence_applies_to_case(ev, exception_type)
+
+        if is_relevant:
+            relevant.add(eid)
+        else:
+            irrelevant.add(eid)
+
     return sorted(relevant), sorted(irrelevant), sorted(invalid)
 
 
 class EvalDatasetGenerator:
-    def __init__(self, seed: int = 42):
+    def __init__(self, seed: int = 42, reference_date: date | None = None):
         self.seed = seed
-        self.rng = random.Random(seed)
         self.settings = get_settings()
-        self.reference_date = date(2025, 12, 1)
+        self.reference_date = reference_date or APX_REFERENCE_DATE
 
     def generate(self, output_dir: Path | None = None):
         eval_dir = output_dir or self.settings.get_eval_path()
@@ -278,10 +253,16 @@ class EvalDatasetGenerator:
 def main():
     parser = argparse.ArgumentParser(description="Populate evaluation dataset with ground-truth labels")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
+    parser.add_argument(
+        "--reference-date",
+        type=date.fromisoformat,
+        default=APX_REFERENCE_DATE,
+        help=f"Temporal anchor for evidence validity (default: {APX_REFERENCE_DATE.isoformat()})",
+    )
     parser.add_argument("--output-dir", type=str, help="Output directory (default: apx/data/datasets/eval)")
     args = parser.parse_args()
 
-    generator = EvalDatasetGenerator(seed=args.seed)
+    generator = EvalDatasetGenerator(seed=args.seed, reference_date=args.reference_date)
     if args.output_dir:
         generator.generate(Path(args.output_dir))
     else:

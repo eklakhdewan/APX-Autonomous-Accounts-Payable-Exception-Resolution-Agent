@@ -1,0 +1,75 @@
+============================================================
+APX V1.1 Phase 5 Benchmark Report
+============================================================
+Timestamp: 2026-08-18T13:21:54.262128
+Dataset Tier: dev
+Dataset Seed: 42
+Reference Date: 2026-08-29
+Total Invoices: 500
+Execution Time: 1204.09s
+Overall: FAILED
+
+Layer 1 - Extraction Evaluation:
+  Exact Match Rate: 100.00%
+  Precision: 100.00%
+  Recall: 100.00%
+  F1: 100.00%
+
+Layer 2 - Detection Evaluation:
+  Precision: 15.88%
+  Recall: 99.55%
+  F1: 27.39%
+  True Positives: 222
+  False Positives: 1176
+  False Negatives: 1
+
+Layer 3 - Retrieval Evaluation:
+  Recall@5: 6.67%
+  Recall@10: 6.67%
+  MRR: 0.2000
+  nDCG@10: 0.1815
+  Valid Evidence Rate: 1.50%
+  Invalid Evidence Rejection Rate: 82.89%
+  Vendor Scope Correctness: 6.50%
+
+Layer 4 - Decision Evaluation:
+  Outcome Accuracy: 2.00%
+  Risk Accuracy: 17.80%
+  Escalation Accuracy: 2.00%
+
+Layer 5 - Action Evaluation:
+  Action Accuracy: 2.00%
+  Guardrail Accuracy: 55.00%
+  Unauthorized Action Rate: 0.00%
+  Approval Accuracy: 22.51%
+  Blocked Accuracy: 60.48%
+
+Layer 6 - Business Evaluation:
+Business Evaluation Summary
+============================
+Total Cases: 500
+
+Automation Rate: 2.0% (10/500)
+Escalation Rate: 98.0% (490/500)
+Request Info Rate: 0.0% (0/500)
+Resolution Rate: 2.0% (10/500)
+
+Decision Accuracy: 33.2%
+Unauthorized Action Rate: 0.0%
+
+Average Total Latency: 2367.6 ms
+  Phase 1 (Validation): 0.0 ms
+  Phase 2 (Retrieval): 2367.0 ms
+  Phase 3 (Investigation): 0.3 ms
+  Phase 4 (Decision/Action): 0.2 ms
+
+Total Estimated Cost: $689.0000
+Cost per Case: $1.3780
+
+Outcome Breakdown: {'ESCALATE': 490, 'RESOLVE': 10}
+
+============================================================
+FAILURES:
+  - Detection F1 (0.27) below target 0.85
+  - Retrieval Recall@5 (0.07) below target 0.70
+  - Automation rate (0.02) below target 0.50

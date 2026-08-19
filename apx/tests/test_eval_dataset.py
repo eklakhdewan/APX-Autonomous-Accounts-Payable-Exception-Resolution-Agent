@@ -1,9 +1,15 @@
 import json
 import pytest
+from datetime import date
 from pathlib import Path
 
 from apx.config.settings import get_settings
-from apx.evidence.schemas import Evidence
+from apx.evidence.populate_eval_labels import (
+    determine_labels_for_case,
+    evidence_matches_exception,
+    evidence_applies_to_case,
+)
+from apx.evidence.schemas import Evidence, EvidenceType, SourceAuthority
 
 
 class TestEvalDataset:
@@ -128,3 +134,262 @@ def test_evaluation_metrics_are_numeric():
     assert compute_recall_at_k([], retrieved, 5) == 1.0
     assert compute_mrr([], retrieved) == 1.0
     assert compute_ndcg_at_k([], retrieved, 10) == 1.0
+
+
+def test_historical_resolution_requires_matching_exception_code():
+    evidence = {
+        "evidence_id": "EV-TEST-1",
+        "evidence_type": "historical_resolution",
+        "vendor_id": "V-0007",
+        "scope": "vendor_exception",
+        "effective_from": date(2025, 1, 1),
+        "effective_until": date(2026, 12, 31),
+        "policy_version": "v1.0",
+        "outcome": "AUTO_APPROVED",
+        "source_authority": "internal",
+        "metadata": {"exception_code": "CURRENCY_MISMATCH"},
+        "applicable_exception_types": ["CURRENCY_MISMATCH"],
+    }
+    assert evidence_matches_exception(evidence, "CURRENCY_MISMATCH") is True
+    assert evidence_matches_exception(evidence, "PO_MISMATCH") is False
+
+
+def test_policy_without_explicit_applicability_is_not_relevant():
+    evidence = {
+        "evidence_id": "EV-TEST-2",
+        "evidence_type": "vendor_policy",
+        "vendor_id": "V-0007",
+        "scope": "payment_terms",
+        "effective_from": date(2025, 1, 1),
+        "effective_until": date(2026, 12, 31),
+        "policy_version": "v1.0",
+        "outcome": "ACTIVE",
+        "source_authority": "internal",
+        "metadata": {"policy_scope": "payment_terms"},
+        "applicable_exception_types": [],
+    }
+    assert evidence_applies_to_case(evidence, "DISCOUNT_ERROR") is False
+    assert evidence_applies_to_case(evidence, "AMOUNT_MISMATCH") is False
+
+
+def test_contract_without_explicit_applicability_is_not_relevant():
+    evidence = {"evidence_type": "contract", "applicable_exception_types": [], "vendor_id": "V-0007"}
+    assert evidence_applies_to_case(evidence, "AMOUNT_MISMATCH") is False
+
+
+def test_payment_term_without_explicit_applicability_is_not_relevant():
+    evidence = {"evidence_type": "payment_term", "applicable_exception_types": [], "vendor_id": "V-0007"}
+    assert evidence_applies_to_case(evidence, "DISCOUNT_ERROR") is False
+
+
+def test_explicit_applicability_makes_generic_evidence_relevant():
+    evidence = {
+        "evidence_id": "EV-TEST-3",
+        "evidence_type": "contract",
+        "vendor_id": "V-0007",
+        "scope": "contractual_terms",
+        "effective_from": date(2025, 1, 1),
+        "effective_until": date(2026, 12, 31),
+        "policy_version": "v1.0",
+        "outcome": "ACTIVE",
+        "source_authority": "internal",
+        "metadata": {"contract_id": "CTR-1"},
+        "applicable_exception_types": ["DISCOUNT_ERROR", "AMOUNT_MISMATCH"],
+    }
+    assert evidence_applies_to_case(evidence, "DISCOUNT_ERROR") is True
+    assert evidence_applies_to_case(evidence, "AMOUNT_MISMATCH") is True
+    assert evidence_applies_to_case(evidence, "PO_MISMATCH") is False
+
+
+def test_label_generation_requires_applicability_and_vendor_scope():
+    case = {"case_id": "EVAL-TEST", "exception_type": "PO_MISMATCH", "vendor_id": "V-0006"}
+    evidence_corpus = {
+        "EV-VALID-PO": {
+            "evidence_id": "EV-VALID-PO",
+            "evidence_type": "historical_resolution",
+            "vendor_id": "V-0006",
+            "scope": "vendor_exception",
+            "effective_from": date(2025, 1, 1),
+            "effective_until": date(2026, 12, 31),
+            "policy_version": "v1.0",
+            "outcome": "AUTO_APPROVED",
+            "source_authority": "internal",
+            "metadata": {"exception_code": "PO_MISMATCH"},
+            "applicable_exception_types": ["PO_MISMATCH"],
+        },
+        "EV-WRONG-EXCEPTION": {
+            "evidence_id": "EV-WRONG-EXCEPTION",
+            "evidence_type": "historical_resolution",
+            "vendor_id": "V-0006",
+            "scope": "vendor_exception",
+            "effective_from": date(2025, 1, 1),
+            "effective_until": date(2026, 12, 31),
+            "policy_version": "v1.0",
+            "outcome": "AUTO_APPROVED",
+            "source_authority": "internal",
+            "metadata": {"exception_code": "LINE_ITEM_MISMATCH"},
+            "applicable_exception_types": ["LINE_ITEM_MISMATCH"],
+        },
+        "EV-OTHER-VENDOR": {
+            "evidence_id": "EV-OTHER-VENDOR",
+            "evidence_type": "historical_resolution",
+            "vendor_id": "V-9999",
+            "scope": "vendor_exception",
+            "effective_from": date(2025, 1, 1),
+            "effective_until": date(2026, 12, 31),
+            "policy_version": "v1.0",
+            "outcome": "AUTO_APPROVED",
+            "source_authority": "internal",
+            "metadata": {"exception_code": "PO_MISMATCH"},
+            "applicable_exception_types": ["PO_MISMATCH"],
+        },
+        "EV-STALE": {
+            "evidence_id": "EV-STALE",
+            "evidence_type": "historical_resolution",
+            "vendor_id": "V-0006",
+            "scope": "vendor_exception",
+            "effective_from": date(2020, 1, 1),
+            "effective_until": date(2021, 1, 1),
+            "policy_version": "v1.0",
+            "outcome": "AUTO_APPROVED",
+            "source_authority": "internal",
+            "metadata": {"exception_code": "PO_MISMATCH"},
+            "applicable_exception_types": ["PO_MISMATCH"],
+        },
+    }
+    relevant, irrelevant, invalid = determine_labels_for_case(case, evidence_corpus, date(2026, 1, 1))
+    assert "EV-VALID-PO" in relevant
+    assert "EV-WRONG-EXCEPTION" not in relevant
+    assert "EV-OTHER-VENDOR" not in relevant
+    assert "EV-STALE" not in relevant
+
+
+def test_wrong_vendor_is_not_relevant():
+    evidence = {"evidence_type": "vendor_policy", "vendor_id": "V-9999", "applicable_exception_types": ["PO_MISMATCH"]}
+    case = {"case_id": "VENDOR", "vendor_id": "V-0006", "exception_type": "PO_MISMATCH"}
+    relevant, _, _ = determine_labels_for_case(case, {"EV": evidence | {
+        "effective_from": date(2025, 1, 1), "effective_until": date(2026, 12, 31),
+        "policy_version": "v1.0", "outcome": "ACTIVE", "scope": "policy", "source_authority": "internal",
+    }}, date(2026, 1, 1))
+    assert relevant == []
+
+
+def test_expired_evidence_is_not_relevant():
+    evidence = {"evidence_type": "contract", "vendor_id": "V-0006", "applicable_exception_types": ["PO_MISMATCH"],
+                "effective_from": date(2020, 1, 1), "effective_until": date(2021, 1, 1), "policy_version": "v1.0",
+                "outcome": "ACTIVE", "scope": "contract", "source_authority": "internal"}
+    case = {"case_id": "EXPIRED", "vendor_id": "V-0006", "exception_type": "PO_MISMATCH"}
+    _, _, invalid = determine_labels_for_case(case, {"EV": evidence}, date(2026, 1, 1))
+    assert invalid == ["EV"]
+
+
+def test_future_evidence_is_not_relevant():
+    evidence = {"evidence_type": "contract", "vendor_id": "V-0006", "applicable_exception_types": ["PO_MISMATCH"],
+                "effective_from": date(2027, 1, 1), "effective_until": date(2028, 1, 1), "policy_version": "v1.0",
+                "outcome": "ACTIVE", "scope": "contract", "source_authority": "internal"}
+    case = {"case_id": "FUTURE", "vendor_id": "V-0006", "exception_type": "PO_MISMATCH"}
+    _, _, invalid = determine_labels_for_case(case, {"EV": evidence}, date(2026, 1, 1))
+    assert invalid == ["EV"]
+
+
+def test_wrong_exception_is_not_relevant():
+    evidence = {"evidence_type": "contract", "vendor_id": "V-0006", "applicable_exception_types": ["TAX_ERROR"],
+                "effective_from": date(2025, 1, 1), "effective_until": date(2026, 12, 31), "policy_version": "v1.0",
+                "outcome": "ACTIVE", "scope": "contract", "source_authority": "internal"}
+    case = {"case_id": "WRONG", "vendor_id": "V-0006", "exception_type": "PO_MISMATCH"}
+    relevant, _, _ = determine_labels_for_case(case, {"EV": evidence}, date(2026, 1, 1))
+    assert relevant == []
+
+
+def test_generated_corpus_populates_exception_applicability_deterministically():
+    from apx.evidence.generate_evidence import EvidenceCorpusGenerator
+
+    gen = EvidenceCorpusGenerator(seed=42, reference_date=date(2026, 8, 29))
+    gen.generate_all(
+        vendors=[f"V-{i:04d}" for i in range(1, 21)],
+        exception_codes=[
+            "VENDOR_MISMATCH", "PO_MISMATCH", "AMOUNT_MISMATCH", "GRN_MISMATCH",
+            "DUPLICATE_INVOICE", "TAX_ERROR", "CURRENCY_MISMATCH", "LINE_ITEM_MISMATCH",
+            "DISCOUNT_ERROR", "CREDIT_ISSUE",
+        ],
+    )
+
+    populated = [e for e in gen.evidence if e.applicable_exception_types]
+    assert populated
+    assert all(isinstance(e.applicable_exception_types, list) for e in populated)
+    assert any(e.evidence_type == "contract" and not e.applicable_exception_types for e in gen.evidence)
+    assert any(e.evidence_type == "payment_term" and e.applicable_exception_types for e in gen.evidence)
+
+
+def test_generated_applicability_is_deterministic():
+    from apx.evidence.generate_evidence import EvidenceCorpusGenerator
+
+    kwargs = dict(vendors=[f"V-{i:04d}" for i in range(1, 21)], exception_codes=[
+        "AMOUNT_MISMATCH", "GRN_MISMATCH", "VENDOR_MISMATCH", "TAX_ERROR", "CREDIT_ISSUE",
+        "PO_MISMATCH", "CURRENCY_MISMATCH", "LINE_ITEM_MISMATCH", "DISCOUNT_ERROR", "DUPLICATE_INVOICE",
+    ])
+    left = EvidenceCorpusGenerator(seed=42, reference_date=date(2026, 8, 29))
+    right = EvidenceCorpusGenerator(seed=42, reference_date=date(2026, 8, 29))
+    left.generate_all(**kwargs)
+    right.generate_all(**kwargs)
+    assert [e.applicable_exception_types for e in left.evidence] == [e.applicable_exception_types for e in right.evidence]
+
+
+def test_quantity_does_not_infer_grn_or_line_item_applicability():
+    evidence = {"evidence_type": "vendor_policy", "content": "Quantity is recorded for reporting.", "applicable_exception_types": []}
+    assert evidence_applies_to_case(evidence, "GRN_MISMATCH") is False
+    assert evidence_applies_to_case(evidence, "LINE_ITEM_MISMATCH") is False
+
+
+def test_tax_does_not_infer_tax_error_applicability():
+    evidence = {"evidence_type": "contract", "content": "Tax is listed for accounting.", "applicable_exception_types": []}
+    assert evidence_applies_to_case(evidence, "TAX_ERROR") is False
+
+
+def test_every_canonical_exception_has_a_genuine_applicable_template():
+    from apx.evidence.generate_evidence import EvidenceCorpusGenerator
+
+    generator = EvidenceCorpusGenerator(seed=42, reference_date=date(2026, 8, 29))
+    generator.generate_all(
+        vendors=[f"V-{i:04d}" for i in range(1, 21)],
+        exception_codes=[code for _, code, _ in generator.SEMANTIC_POLICY_TEMPLATES],
+    )
+    applicable = {code for evidence in generator.evidence for code in evidence.applicable_exception_types}
+    assert applicable >= {code for _, code, _ in generator.SEMANTIC_POLICY_TEMPLATES}
+
+
+def test_label_generation_has_no_vendor_wide_leakage_from_other_vendors():
+    case = {"case_id": "EVAL-LEAK", "exception_type": "CURRENCY_MISMATCH", "vendor_id": "V-0007"}
+    evidence_corpus = {
+        "EV-REL": {
+            "evidence_id": "EV-REL",
+            "evidence_type": "historical_resolution",
+            "vendor_id": "V-0007",
+            "scope": "vendor_exception",
+            "effective_from": date(2025, 1, 1),
+            "effective_until": date(2026, 12, 31),
+            "policy_version": "v1.0",
+            "outcome": "AUTO_APPROVED",
+            "source_authority": "internal",
+            "metadata": {"exception_code": "CURRENCY_MISMATCH"},
+            "applicable_exception_types": ["CURRENCY_MISMATCH"],
+        },
+        "EV-OTHER": {
+            "evidence_id": "EV-OTHER",
+            "evidence_type": "vendor_policy",
+            "vendor_id": "V-9999",
+            "scope": "payment_terms",
+            "effective_from": date(2025, 1, 1),
+            "effective_until": date(2026, 12, 31),
+            "policy_version": "v2.0",
+            "outcome": "ACTIVE",
+            "source_authority": "internal",
+            "metadata": {"policy_scope": "payment_terms"},
+            "applicable_exception_types": ["DISCOUNT_ERROR"],
+        },
+    }
+    relevant, irrelevant, invalid = determine_labels_for_case(case, evidence_corpus, date(2026, 1, 1))
+    assert "EV-REL" in relevant
+    assert "EV-OTHER" not in relevant
+    assert all(ev["vendor_id"] == "V-0007" for ev in [evidence_corpus[eid] for eid in irrelevant] if eid in evidence_corpus)
+    assert "EV-OTHER" not in irrelevant

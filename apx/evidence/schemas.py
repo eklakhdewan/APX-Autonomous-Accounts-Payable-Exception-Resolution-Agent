@@ -45,6 +45,7 @@ class Evidence(BaseModel):
     usage_count: int = Field(default=0, ge=0)
     content: str = Field(..., min_length=1)
     metadata: dict[str, Any] = Field(default_factory=dict)
+    applicable_exception_types: list[str] = Field(default_factory=list)
 
     @field_validator("usage_count", mode="before")
     @classmethod
@@ -52,6 +53,22 @@ class Evidence(BaseModel):
         if isinstance(v, int):
             return v
         return int(v)
+
+    @field_validator("applicable_exception_types", mode="before")
+    @classmethod
+    def _normalize_exception_types(cls, v):
+        if v is None:
+            return []
+        if isinstance(v, str):
+            return [v.strip().upper()] if v.strip() else []
+        cleaned = []
+        for item in v:
+            if item is None:
+                continue
+            value = str(item).strip().upper()
+            if value:
+                cleaned.append(value)
+        return list(dict.fromkeys(cleaned))
 
 
 class EvidenceValidityResult(BaseModel):

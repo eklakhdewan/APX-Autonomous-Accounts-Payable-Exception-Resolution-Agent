@@ -19,6 +19,7 @@ class RetrievalProfile(BaseModel):
     rrf_constant: int
     reranker_top_k: int
     evidence_validity_enabled: bool
+    local_files_only: bool = False
     description: str = ""
 
 

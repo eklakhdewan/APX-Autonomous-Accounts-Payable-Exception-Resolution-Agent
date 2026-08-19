@@ -11,6 +11,7 @@ profiles:
     rrf_constant: 60
     reranker_top_k: 20
     evidence_validity_enabled: true
+    local_files_only: true
     description: "Development profile - small models for CPU"
 
   EVAL:
@@ -25,6 +26,7 @@ profiles:
     rrf_constant: 60
     reranker_top_k: 30
     evidence_validity_enabled: true
+    local_files_only: true
     description: "Evaluation profile - larger models"
 
   PROD:
@@ -39,6 +41,7 @@ profiles:
     rrf_constant: 60
     reranker_top_k: 50
     evidence_validity_enabled: true
+    local_files_only: false
     description: "Production profile - configurable via environment variables"
 
 defaults:

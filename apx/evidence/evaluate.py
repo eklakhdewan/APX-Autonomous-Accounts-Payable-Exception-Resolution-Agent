@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 import time
-from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -11,6 +10,7 @@ import numpy as np
 
 from apx.config.settings import get_settings
 from apx.data.schemas import ExceptionReport, ExceptionCode, ExceptionSeverity, APException, ValidationStatus
+from apx.evidence.dates import APX_REFERENCE_DATE
 from apx.evidence.engine import HybridContextEngine
 from apx.evidence.schemas import Evidence, EvidenceSet, ValidityStatus
 
@@ -83,9 +83,9 @@ def run_evaluation():
     eval_cases = load_eval_dataset(eval_path)
     print(f"Loaded {len(eval_cases)} evaluation cases")
 
-    # Initialize engine - use reference date matching the corpus validity window
+    # Initialize engine - reference date must match the corpus validity anchor
     print("Initializing HybridContextEngine (DEV profile)...")
-    engine = HybridContextEngine(profile_name="DEV", reference_date=date(2025, 12, 1))
+    engine = HybridContextEngine(profile_name="DEV", reference_date=APX_REFERENCE_DATE)
 
     all_results = []
     
@@ -187,7 +187,7 @@ def run_evaluation():
     print(f"Evaluation cases: {len(all_results)}")
     print(f"Corpus size: {len(evidence_map)}")
     print(f"Profile: DEV (bge-small-en-v1.5 + bge-reranker-base)")
-    print(f"Reference date: 2025-12-01")
+    print(f"Reference date: {APX_REFERENCE_DATE.isoformat()}")
     print()
     print("Per-case results:")
     for r in all_results:

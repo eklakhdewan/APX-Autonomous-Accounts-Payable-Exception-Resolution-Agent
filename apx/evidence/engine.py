@@ -60,6 +60,7 @@ class HybridContextEngine:
             top_k=self.dense_top_k,
             batch_size=self.profile.batch_size,
             max_seq_length=self.profile.max_seq_length,
+            local_files_only=self.profile.local_files_only,
         )
         self.reranker = CrossEncoderReranker(
             model_name=self.profile.reranker_model,
@@ -67,6 +68,7 @@ class HybridContextEngine:
             top_k=self.reranker_top_k,
             batch_size=self.profile.batch_size,
             max_seq_length=self.profile.max_seq_length,
+            local_files_only=self.profile.local_files_only,
         )
         self.validator = EvidenceValidator(reference_date=reference_date)
 

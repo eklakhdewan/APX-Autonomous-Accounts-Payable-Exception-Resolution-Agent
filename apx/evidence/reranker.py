@@ -20,19 +20,21 @@ class CrossEncoderReranker:
         top_k: int = 20,
         batch_size: int = 16,
         max_seq_length: int = 512,
+        local_files_only: bool = False,
     ):
         self.model_name = model_name
         self.device = device
         self.top_k = top_k
         self.batch_size = batch_size
         self.max_seq_length = max_seq_length
+        self.local_files_only = local_files_only
         self.settings = get_settings()
         self.model: CrossEncoder | None = None
 
     def _load_model(self):
         if self.model is None:
             print(f"Loading cross-encoder model: {self.model_name}...")
-            self.model = CrossEncoder(self.model_name, device=self.device, max_length=self.max_seq_length)
+            self.model = CrossEncoder(self.model_name, device=self.device, max_length=self.max_seq_length, local_files_only=self.local_files_only)
             print(f"Cross-encoder model loaded")
 
     def rerank(
