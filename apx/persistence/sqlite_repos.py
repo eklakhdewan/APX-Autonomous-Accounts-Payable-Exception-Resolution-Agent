@@ -144,6 +144,7 @@ class _InvoiceSerializer:
             total=orm.total,
             discount=orm.discount,
             line_items=line_items,
+            created_at=orm.created_at,
         )
 
     @staticmethod
@@ -475,7 +476,7 @@ class SQLiteCaseRepository(CaseRepository):
 
     def _orm_to_dict(self, orm: CaseORM) -> Dict[str, Any]:
         return {
-            "case_id": orm.case_id,
+            "case_id": str(orm.case_id),
             "invoice_id": orm.invoice_id,
             "vendor_id": orm.vendor_id,
             "status": orm.status,

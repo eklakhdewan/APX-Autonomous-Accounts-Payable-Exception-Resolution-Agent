@@ -372,7 +372,7 @@ class TestCaseRepository:
 
         case = repo.get(case_id)
         assert case is not None
-        assert case["case_id"] == case_id
+        assert case["case_id"] == str(case_id)
         assert case["invoice_id"] == "INV-TEST-001"
         assert case["vendor_id"] == "V-0001"
         assert case["status"] == "NEW"
@@ -386,7 +386,7 @@ class TestCaseRepository:
 
         case = repo.get_by_invoice("INV-TEST-001")
         assert case is not None
-        assert case["case_id"] == case_id
+        assert case["case_id"] == str(case_id)
 
     def test_get_by_idempotency_key(self, clean_db, persisted_invoice):
         """Test getting case by idempotency key."""
@@ -396,7 +396,7 @@ class TestCaseRepository:
 
         case = repo.get_by_idempotency_key("idem-unique")
         assert case is not None
-        assert case["case_id"] == case_id
+        assert case["case_id"] == str(case_id)
 
         # Non-existent key
         case = repo.get_by_idempotency_key("nonexistent")

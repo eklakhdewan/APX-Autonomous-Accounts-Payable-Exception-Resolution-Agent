@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime, date
 from decimal import Decimal
-from datetime import date
 from enum import Enum
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator, model_validator
@@ -162,6 +162,7 @@ class Invoice(BaseModel):
     total: Decimal = Field(..., ge=0)
     discount: Decimal = Field(default=Decimal("0"), ge=0)
     line_items: list[InvoiceLine] = Field(default_factory=list)
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
     @field_validator("subtotal", "tax", "total", "discount", mode="before")
     @classmethod
