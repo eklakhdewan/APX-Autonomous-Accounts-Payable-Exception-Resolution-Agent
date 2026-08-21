@@ -9,7 +9,6 @@ import logging
 from apx.api.schemas import ApprovalResponse, ApproveRequest, RejectRequest, ErrorResponse
 from apx.application.services import get_approval_service
 from apx.api.middleware import get_current_role, get_request_id
-from apx.persistence.sqlite_repos import SQLiteApprovalRepository
 
 router = APIRouter()
 
@@ -57,26 +56,8 @@ async def approve_case(
 ):
     """Approve a case."""
     service = get_approval_service()
-    logger = logging.getLogger("apx.api.routes.approvals")
     logger.info(f"Approving case: {case_id}, type: {type(case_id)}")
-    # Check if approval exists first
-    from apx.persistence.sqlite_repos import SQLiteApprovalRepository
-    from uuid import UUID
-    approval_repo = SQLiteApprovalRepository()
-    logger.info(f"Looking up approval for case_id: {case_id}")
-    approval = None
     try:
-        approval = SQLiteApprovalRepository().get_by_case(UUID(case_id))
-    except Exception as e:
-        logger.error(f"Error looking up approval: {e}")
-    logger.info(f"Approval found: {approval is not None}")
-    if not approval:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Approval for case {case_id} not found",
-        )
-    try:
-        service = get_approval_service()
         result = service.approve_case(case_id, approve_request.approver_id, approve_request.notes)
         return ApprovalResponse(**result)
     except ValueError as e:

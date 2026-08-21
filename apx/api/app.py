@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import FastAPI, Depends, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse, JSONResponse
 
@@ -84,6 +85,7 @@ async def lifespan(app: FastAPI):
         services_module._invoice_service = InvoiceService(
             invoice_repo=invoice_repo,
             case_repo=case_repo,
+            approval_repo=approval_repo,
             audit_repo=audit_repo,
             validator=validator,
             evidence_engine=evidence_engine,
@@ -91,7 +93,7 @@ async def lifespan(app: FastAPI):
         )
         services_module._case_service = CaseService(case_repo, audit_repo)
         services_module._approval_service = ApprovalService(
-            approval_repo=SQLiteApprovalRepository(),
+            approval_repo=approval_repo,
             case_repo=case_repo,
             audit_repo=audit_repo,
         )
@@ -173,12 +175,36 @@ def create_app() -> FastAPI:
 
     @app.exception_handler(HTTPException)
     async def http_exception_handler(request: Request, exc: HTTPException):
+        error_type = "http_error"
+        if exc.status_code == 404:
+            error_type = "not_found"
+        elif exc.status_code == 422:
+            error_type = "validation_error"
+        elif exc.status_code == 401:
+            error_type = "unauthorized"
+        elif exc.status_code == 403:
+            error_type = "forbidden"
         return JSONResponse(
             status_code=exc.status_code,
             content={
-                "error": "http_error",
+                "error": error_type,
                 "message": exc.detail,
                 "request_id": get_request_id(),
+            },
+        )
+
+    @app.exception_handler(RequestValidationError)
+    async def validation_exception_handler(request: Request, exc: RequestValidationError):
+        return JSONResponse(
+            status_code=422,
+            content={
+                "error": "validation_error",
+                "message": "Request validation failed",
+                "request_id": get_request_id(),
+                "details": [
+                    {"field": ".".join(str(x) for x in e["loc"]), "message": e["msg"], "value": e.get("input")}
+                    for e in exc.errors()
+                ],
             },
         )
 

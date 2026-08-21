@@ -34,6 +34,7 @@ class InvoiceService:
         self,
         invoice_repo: InvoiceRepository,
         case_repo: CaseRepository,
+        approval_repo: ApprovalRepository,
         audit_repo: AuditRepository,
         validator: InvoiceValidator,
         evidence_engine: HybridContextEngine,
@@ -41,6 +42,7 @@ class InvoiceService:
     ):
         self.invoice_repo = invoice_repo
         self.case_repo = case_repo
+        self.approval_repo = approval_repo
         self.audit_repo = audit_repo
         self.validator = validator
         self.evidence_engine = evidence_engine
@@ -257,6 +259,34 @@ class InvoiceService:
             action_plan.guardrail_decision,
             action_plan,
         )
+
+        # Create approval request if required
+        if action_plan.guardrail_decision.requires_approval:
+            self.logger.info(f"Creating approval request for case {case['case_id']}")
+            from apx.action.models import ApprovalRequest, ApprovalStatus
+            approval_request = ApprovalRequest(
+                approval_id=str(uuid4()),
+                action_plan_id=str(case["case_id"]),
+                action_type=action_plan.action_type.value if hasattr(action_plan.action_type, 'value') else str(action_plan.action_type),
+                risk_level=str(action_plan.risk_assessment.risk_level) if action_plan.risk_assessment else "UNKNOWN",
+                requested_by="system",
+                status=ApprovalStatus.PENDING,
+                required_approvers=action_plan.guardrail_decision.required_approvals,
+            )
+            self.approval_repo.create(approval_request)
+
+            self.audit_repo.log(
+                case_id=UUID(case["case_id"]),
+                event_type="APPROVAL_REQUESTED",
+                phase="phase4",
+                component="invoice_service",
+                payload={
+                    "invoice_id": invoice_id,
+                    "approval_id": approval_request.approval_id,
+                    "action_type": approval_request.action_type,
+                    "required_approvers": approval_request.required_approvers,
+                },
+            )
 
         # Execute if approved
         action_result = None

@@ -75,6 +75,8 @@ class RequestIDMiddleware(BaseHTTPMiddleware):
                     "method": request.method,
                     "path": request.url.path,
                     "query": str(request.query_params),
+                    "request_id": request_id,
+                    "correlation_id": correlation_id,
                 },
             )
 
@@ -95,6 +97,8 @@ class RequestIDMiddleware(BaseHTTPMiddleware):
                     metadata={
                         "status_code": response.status_code,
                         "duration_ms": duration_ms,
+                        "request_id": request_id,
+                        "correlation_id": correlation_id,
                     },
                 )
 
@@ -207,9 +211,12 @@ class AuthorizationMiddleware(BaseHTTPMiddleware):
 
         # Operator: reader + POST /invoices and POST /invoices/{id}/process
         elif role == "operator":
-            if method == "POST" and path not in ["/invoices", "/invoices/{invoice_id}/process"]:
-                # Need to check if path matches pattern
-                if path.startswith("/invoices/") and "/process" not in path:
+            if method == "POST":
+                # Allow only specific endpoints
+                allowed_paths = ["/invoices"]
+                # Check for /invoices/{id}/process pattern
+                is_invoice_process = path.startswith("/invoices/") and path.endswith("/process")
+                if path not in allowed_paths and not is_invoice_process:
                     return JSONResponse(
                         status_code=403,
                         content={
@@ -231,6 +238,11 @@ class AuthorizationMiddleware(BaseHTTPMiddleware):
                             "request_id": get_request_id(),
                         },
                     )
+
+        # Admin: all permissions
+        elif role == "admin":
+            # Admin can access all endpoints
+            pass
 
         # Admin: all permissions (if we add admin role later)
         # For now, unknown role = denied
