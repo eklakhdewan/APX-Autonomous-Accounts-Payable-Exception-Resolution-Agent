@@ -15,6 +15,11 @@ from apx.api.middleware import (
     RequestIDMiddleware,
     AuthMiddleware,
     AuthorizationMiddleware,
+    APIMetricsMiddleware,
+    RedactionMiddleware,
+    RateLimitMiddleware,
+    RequestSizeMiddleware,
+    SecurityHeadersMiddleware,
     get_request_id,
 )
 from apx.api.routes import health, invoices, cases, approvals, audit, metrics
@@ -135,7 +140,31 @@ def create_app() -> FastAPI:
         redoc_url="/redoc" if settings.debug else None,
     )
 
-    # CORS middleware (runs last in request phase)
+    # Security headers middleware (outermost - adds headers to response)
+    app.add_middleware(SecurityHeadersMiddleware)
+
+    # Rate limiting middleware (early rejection)
+    app.add_middleware(RateLimitMiddleware)
+
+    # Request size enforcement middleware (early rejection)
+    app.add_middleware(RequestSizeMiddleware)
+
+    # Request ID middleware (generates IDs, logs start/end)
+    app.add_middleware(RequestIDMiddleware)
+
+    # Authorization middleware (role-based access control)
+    app.add_middleware(AuthorizationMiddleware)
+
+    # Auth middleware (authentication) - runs before AuthorizationMiddleware
+    app.add_middleware(AuthMiddleware)
+
+    # API metrics middleware (collects per-endpoint metrics)
+    app.add_middleware(APIMetricsMiddleware)
+
+    # Redaction middleware (logs request/response bodies with redaction)
+    app.add_middleware(RedactionMiddleware)
+
+    # CORS middleware (runs last in request phase, first in response)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
@@ -143,15 +172,6 @@ def create_app() -> FastAPI:
         allow_methods=settings.cors_allow_methods,
         allow_headers=settings.cors_allow_headers,
     )
-
-    # Request ID middleware
-    app.add_middleware(RequestIDMiddleware)
-
-    # Authorization middleware
-    app.add_middleware(AuthorizationMiddleware)
-
-    # Auth middleware (runs first in request phase)
-    app.add_middleware(AuthMiddleware)
 
     # Include routers
     app.include_router(health.router, tags=["health"])
