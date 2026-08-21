@@ -1,489 +1,658 @@
-# APX — Autonomous Accounts Payable Exception Resolution Agent
+# APX --- Autonomous Accounts Payable Exception Resolution Agent
 
-> **Research-grade autonomous exception-resolution system for Accounts Payable (AP)**  
-> Deterministic validation → evidence retrieval → decision intelligence → risk controls → approval → guarded action execution → persistence → API delivery → evaluation → observability.
+> **A controlled, evidence-grounded autonomous system for Accounts
+> Payable exception resolution.**
+>
+> Deterministic validation → evidence retrieval → investigation → risk
+> decision → approval → guarded action → persistence → API delivery →
+> observability → evaluation.
 
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](#)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](#)
 [![Version](https://img.shields.io/badge/version-0.4.0-informational)](#)
-[![Phase](https://img.shields.io/badge/status-Phase%206B%20complete%20%2F%206C%20next-orange)](#)
-[![Tests](https://img.shields.io/badge/Phase%206B-verified-brightgreen)](#)
+[![Status](https://img.shields.io/badge/status-Phase%206D%20complete-success)](#)
+[![Tests](https://img.shields.io/badge/Phase%206D-verified-success)](#)
 
----
+------------------------------------------------------------------------
 
-## 1. Overview
+## 1. What is APX?
 
-**APX (Autonomous Accounts Payable Exception Resolution Agent)** is an engineering and research project for resolving Accounts Payable exceptions through a controlled, auditable autonomous workflow.
+**APX (Autonomous Accounts Payable Exception Resolution Agent)** is an
+engineering and research system for resolving Accounts Payable
+exceptions through a controlled, auditable workflow.
 
-The system is built around one principle:
+The central design principle is:
 
-> **Automation must be evidence-grounded, risk-aware, observable, reproducible, persistent, and auditable.**
+> **An autonomous decision is only useful when the system can explain,
+> constrain, persist, observe, and evaluate it.**
 
-APX does **not** treat an LLM as the financial source of truth. Deterministic validation, evidence retrieval, risk policy, approval controls, persistence, and guarded action execution remain explicit system components.
+APX therefore does **not** make an LLM the financial source of truth.
+Deterministic business validation, evidence retrieval, temporal
+validity, risk policy, approval boundaries, guarded execution,
+persistence, and observability remain explicit system components.
 
 ### Current milestone
 
-**Phase 6B is complete and pushed to `main`.**
+**Phase 6D --- Observability & Security is complete.**
 
-Current Git checkpoint:
+Current repository checkpoint:
 
-```text
-dcefb95 feat: complete phase 6B API delivery
+``` text
+6e509df feat: complete phase 6D observability and security
 ```
 
-Phase 6A established the persistence foundation. Phase 6B added the application/service layer and HTTP API delivery on top of that foundation.
+`main` is synchronized with `origin/main` at this checkpoint.
 
-**Phase 6C has not started.**
+------------------------------------------------------------------------
 
----
+## 2. The APX Decision Pipeline
 
-# 2. Problem
-
-Accounts Payable workflows frequently encounter exceptions such as:
-
-- vendor mismatches
-- purchase-order mismatches
-- amount discrepancies
-- goods-received mismatches
-- duplicate invoices
-- tax errors
-- currency inconsistencies
-- line-item discrepancies
-- discount errors
-- vendor credit issues
-
-A useful autonomous system cannot simply generate an answer. It must determine:
-
-1. **What is wrong?**
-2. **What evidence proves it?**
-3. **What policy applies?**
-4. **How risky is the exception?**
-5. **Can it be resolved automatically?**
-6. **Does human approval remain necessary?**
-7. **What action should be executed?**
-8. **What was persisted?**
-9. **Can the entire decision be audited and evaluated?**
-
-APX is designed around that complete decision pipeline.
-
----
-
-# 3. System Architecture
-
-```text
-                         ┌───────────────────────────┐
-                         │        AP Exception       │
-                         │          Input            │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │ Deterministic Validation  │
-                         │          R1–R10           │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │     Evidence Retrieval    │
-                         │                           │
-                         │  BM25 + Dense + Hybrid    │
-                         │       RRF + Reranker      │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │ Evidence Validation /     │
-                         │ Temporal Anchoring        │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │     Agent Investigation   │
-                         │     + Decision Logic      │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │       Risk Engine         │
-                         │ Amount / Severity /       │
-                         │ Confidence / Evidence /   │
-                         │ Historical Risk           │
-                         └─────────────┬─────────────┘
-                                       │
-                    ┌──────────────────┼──────────────────┐
-                    │                  │                  │
-                    ▼                  ▼                  ▼
-              AUTO RESOLVE       HUMAN REVIEW        ESCALATE
-                    │                  │                  │
-                    └──────────────────┼──────────────────┘
-                                       ▼
-                         ┌───────────────────────────┐
-                         │ Approval + Guardrails     │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │   Guarded Action Engine   │
-                         │ Retry / Compensation /    │
-                         │ Idempotency / DLQ / Dry   │
-                         │ Run                       │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │      Persistence Layer    │
-                         │ SQLite / SQLAlchemy /     │
-                         │ Repositories / Alembic    │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │       FastAPI Layer       │
-                         │ Auth / RBAC / Services /  │
-                         │ Invoices / Cases /        │
-                         │ Approvals / Audit /       │
-                         │ Metrics / Health          │
-                         └─────────────┬─────────────┘
-                                       │
-                                       ▼
-                         ┌───────────────────────────┐
-                         │ Evaluation + Observability│
-                         │ Metrics / Tracing / Logs  │
-                         └───────────────────────────┘
+``` text
+                    ┌─────────────────────────┐
+                    │      AP Exception       │
+                    │        / Invoice        │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Deterministic Validation│
+                    │          R1–R10         │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │    Evidence Retrieval   │
+                    │ BM25 + Dense + Hybrid   │
+                    │ RRF + Cross-Encoder     │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Evidence Validation +   │
+                    │ Temporal Anchoring      │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Agent Investigation +   │
+                    │ Decision Logic          │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Risk Engine             │
+                    │ amount / severity /     │
+                    │ confidence / evidence / │
+                    │ historical risk         │
+                    └────────────┬────────────┘
+                                 │
+                   ┌─────────────┼─────────────┐
+                   ▼             ▼             ▼
+              AUTO-RESOLVE   HUMAN REVIEW   ESCALATE
+                   │             │             │
+                   └─────────────┼─────────────┘
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Approval + Guardrails   │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Guarded Action Engine   │
+                    │ retry / compensation /  │
+                    │ idempotency / DLQ /     │
+                    │ dry-run                 │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Persistence              │
+                    │ SQLite / SQLAlchemy /    │
+                    │ repositories / Alembic   │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ FastAPI Delivery Layer   │
+                    │ auth / RBAC / services   │
+                    │ invoices / cases /       │
+                    │ approvals / audit /      │
+                    │ metrics / health         │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │ Observability +          │
+                    │ Evaluation               │
+                    └─────────────────────────┘
 ```
 
----
+This architecture deliberately separates **decision**,
+**authorization**, and **execution**.
 
-# 4. Engineering Principles
+> **A model decision does not directly imply an irreversible business
+> action.**
 
-### 4.1 Deterministic financial truth
+------------------------------------------------------------------------
 
-Financial validation is not delegated to an LLM.
+## 3. Engineering Principles
 
-The deterministic validation layer implements the AP exception taxonomy and performs structured comparisons using controlled business rules.
+### 3.1 Deterministic financial truth
 
-### 4.2 Evidence before reasoning
+Core AP validation is explicit and reproducible. Financial correctness
+is not delegated to generative text.
 
-Retrieval provides supporting evidence for decisions.
+### 3.2 Evidence before reasoning
 
-APX separates:
+Retrieved evidence is treated as a first-class artifact. APX separates
+retrieval, ranking, reranking, validity checks, and downstream use.
 
-- candidate retrieval
-- ranking
-- reranking
-- evidence validation
-- temporal anchoring
-- downstream decision use
+### 3.3 Risk-aware autonomy
 
-### 4.3 Risk-aware autonomy
+The system distinguishes between cases that can be resolved
+automatically, cases requiring human approval, and cases that must be
+escalated.
 
-Not every exception should be automatically resolved.
+### 3.4 Human approval as a control boundary
 
-The system incorporates:
+Approval is part of the architecture, not an afterthought added around
+the agent.
 
-- monetary risk
-- exception severity
-- confidence
-- evidence sufficiency
-- historical success
-- explicit escalation rules
-- explicit auto-resolution rules
+### 3.5 Guarded execution
 
-### 4.4 Human-in-the-loop controls
+Actions are constrained by authorization, risk, idempotency,
+retry/compensation behavior, and execution controls.
 
-Human approval is a control boundary, not an afterthought.
+### 3.6 Persistent state
 
-### 4.5 Persistent state
+Invoices, cases, approvals, actions, and audit information have a
+durable persistence boundary.
 
-Phase 6 introduces a persistence boundary so invoices, cases, approvals, actions, and audit information can survive beyond a single process execution.
+### 3.7 Observable execution
 
-### 4.6 API as a delivery boundary
+API requests, decisions, actions, and relevant system events are
+designed to be traceable and measurable.
 
-Phase 6B exposes the application through a FastAPI layer with authentication, role-based access control, request tracing, and domain-oriented endpoints.
+### 3.8 Reproducible evaluation
 
-### 4.7 Observable execution
+Benchmarking and evaluation artifacts are persisted so results can be
+inspected and compared rather than treated as one-off demonstrations.
 
-Investigation, decisions, API requests, and action execution are designed to be traceable.
+------------------------------------------------------------------------
 
-### 4.8 Reproducible evaluation
+# 4. Exception Taxonomy --- R1--R10
 
-Evaluation is treated as a first-class engineering component rather than a manual demonstration.
+  -----------------------------------------------------------------------
+  Code                    Exception               Meaning
+  ----------------------- ----------------------- -----------------------
+  R1                      `VENDOR_MISMATCH`       Invoice vendor is
+                                                  inconsistent with the
+                                                  expected vendor
 
----
+  R2                      `PO_MISMATCH`           Purchase-order
+                                                  reference is missing,
+                                                  invalid, or
+                                                  inconsistent
 
-# 5. Exception Taxonomy — R1–R10
+  R3                      `AMOUNT_MISMATCH`       Invoice amount differs
+                                                  from expected PO amount
+                                                  under configured rules
 
-| Code | Exception | Description |
-|---|---|---|
-| R1 | `VENDOR_MISMATCH` | Invoice vendor is inconsistent with PO/vendor |
-| R2 | `PO_MISMATCH` | Missing/invalid PO reference or wrong vendor |
-| R3 | `AMOUNT_MISMATCH` | Invoice total differs from PO total within configured tolerance rules |
-| R4 | `GRN_MISMATCH` | Invoiced quantity exceeds received quantity |
-| R5 | `DUPLICATE_INVOICE` | Duplicate vendor + invoice number |
-| R6 | `TAX_ERROR` | Tax calculation mismatch |
-| R7 | `CURRENCY_MISMATCH` | Invoice/PO/vendor currency inconsistency |
-| R8 | `LINE_ITEM_MISMATCH` | Line-item price/quantity differs from PO |
-| R9 | `DISCOUNT_ERROR` | Discount differs from expected business data |
-| R10 | `CREDIT_ISSUE` | Vendor credit status is HOLD/SUSPENDED/BLOCKED |
+  R4                      `GRN_MISMATCH`          Invoiced quantity
+                                                  exceeds received
+                                                  quantity
 
----
+  R5                      `DUPLICATE_INVOICE`     Duplicate
+                                                  vendor/invoice
+                                                  combination
 
-# 6. Phase Status
+  R6                      `TAX_ERROR`             Tax calculation or
+                                                  expected tax data is
+                                                  inconsistent
 
-| Phase | Area | Status |
-|---|---|---|
-| Phase 1 | Deterministic validation foundation | ✅ Complete |
-| Phase 2 | Evidence/data foundation | ✅ Complete |
-| Phase 3 | Agent/state-machine foundation | ✅ Complete |
-| Phase 4 | Action/approval/guardrail foundation | ✅ Complete |
-| Phase 5 | Evaluation, benchmarking, retrieval analysis, temporal anchoring, observability | ✅ Complete / Frozen |
-| Phase 6A | SQLite persistence foundation | ✅ Complete |
-| Phase 6B | Application services + FastAPI API delivery | ✅ Complete |
-| Phase 6C | Next persistence/application integration stage | ⏳ Next |
+  R7                      `CURRENCY_MISMATCH`     Invoice, PO, or vendor
+                                                  currency is
+                                                  inconsistent
+
+  R8                      `LINE_ITEM_MISMATCH`    Line-item
+                                                  quantity/price differs
+                                                  from expected data
+
+  R9                      `DISCOUNT_ERROR`        Discount differs from
+                                                  expected business data
+
+  R10                     `CREDIT_ISSUE`          Vendor credit status is
+                                                  HOLD, SUSPENDED, or
+                                                  BLOCKED
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# 5. Phase Status
+
+  -----------------------------------------------------------------------
+  Phase                   Scope                   Status
+  ----------------------- ----------------------- -----------------------
+  Phase 1                 Deterministic           ✅ Complete
+                          validation foundation   
+
+  Phase 2                 Evidence and data       ✅ Complete
+                          foundation              
+
+  Phase 3                 Agent and state-machine ✅ Complete
+                          foundation              
+
+  Phase 4                 Action, approval, risk, ✅ Complete
+                          and guardrails          
+
+  Phase 5                 Evaluation,             ✅ Complete / Frozen
+                          benchmarking, retrieval 
+                          analysis, temporal      
+                          anchoring,              
+                          observability           
+                          foundation              
+
+  Phase 6A                SQLite persistence      ✅ Complete
+                          foundation              
+
+  Phase 6B                Application services +  ✅ Complete
+                          FastAPI API delivery    
+
+  Phase 6C                Case and approval       ✅ Complete
+                          lifecycle integration   
+
+  Phase 6D                Observability and API   ✅ Complete
+                          security                
+  -----------------------------------------------------------------------
 
 ### Current freeze point
 
-**Phase 6B is the current completed milestone.**
+**Phase 6D is the latest completed milestone.**
 
-The repository is clean and synchronized with GitHub at:
-
-```text
-dcefb95 (HEAD -> main, origin/main)
-feat: complete phase 6B API delivery
+``` text
+6e509df (HEAD -> main, origin/main)
+feat: complete phase 6D observability and security
 ```
 
----
+No claim of production readiness is implied by this milestone.
 
-# 7. Implemented System Components
+------------------------------------------------------------------------
 
-## 7.1 Data and Domain Layer
+# 6. Phase 6D --- Observability & Security
 
-The project contains canonical domain schemas and synthetic data generation for reproducible development and testing.
+Phase 6D hardens the API boundary without changing the core
+deterministic decision architecture.
 
-Capabilities include:
+## Observability
 
-- vendors
-- purchase orders
-- goods receipts
-- invoices
-- ground-truth exception labels
-- linked relational records
-- deterministic synthetic generation
-- data integrity validation
-- dataset splitting
+Implemented capabilities include:
 
----
+-   Structured JSON request lifecycle logging:
+    -   `request.start`
+    -   `request.end`
+    -   `request.error`
+-   `X-Request-ID` propagation
+-   `X-Correlation-ID` propagation
+-   W3C `traceparent` / `tracestate` propagation at the API boundary
+-   Per-endpoint latency metrics
+-   API request counters
+-   API error counters
+-   Centralized recursive sensitive-data redaction
+-   Optional request/response body redaction
+-   Redaction of audit payloads and metadata before persistence
 
-## 7.2 Deterministic Validation
+## Security
 
-The validation foundation implements the R1–R10 exception taxonomy without requiring an LLM.
+Implemented capabilities include:
 
-Important properties:
+-   In-process token-bucket rate limiting
+-   Configurable request-rate limits
+-   `429 Too Many Requests` responses with `Retry-After`
+-   Request-size enforcement using `Content-Length`
+-   `413 Request Entity Too Large` handling
+-   Security response headers
+-   CSP configuration compatible with the development Swagger UI
+-   `X-Content-Type-Options: nosniff`
+-   `X-Frame-Options: DENY`
+-   `X-XSS-Protection`
+-   `Referrer-Policy`
+-   `Permissions-Policy`
+-   Conditional HSTS for HTTPS
+-   Removal of the `Server` response header
+-   Existing API-key authentication and RBAC preserved
 
-- deterministic behavior
-- reproducible outputs
-- structured Pydantic models
-- Decimal-based monetary comparisons
-- configurable tolerances
-- duplicate detection
-- boundary-case testing
-- multiple-exception handling
+### Important scope boundaries
 
----
+Phase 6D rate limiting is **in-process**. It is not a distributed rate
+limiter.
 
-# 8. Agent Layer
+W3C trace context is implemented at the **API boundary**. This does not
+claim a complete distributed tracing deployment.
 
-APX includes an agent/state-machine layer for controlled investigation and decision execution.
+HSTS is applied only when the deployment is operating over HTTPS. The
+application itself does not provide TLS termination.
 
-The agent infrastructure includes:
+------------------------------------------------------------------------
 
-- investigation steps
-- state-machine transitions
-- configurable investigation budgets
-- mock LLM provider
-- deterministic development behavior
-- integration with retrieval/evidence components
+# 7. Verification
 
-The agent is intentionally constrained rather than being an unconstrained autonomous loop.
+Phase 6D verification was performed before generating and committing
+`PHASE6D_REPORT.md`.
 
----
+  Verification area                                                              Result
+  ----------------------------------------------- -------------------------------------
+  Phase 6D focused observability/security tests                           **30 passed**
+  Tracing regression suite                                                **23 passed**
+  Persistence regression suite                                            **56 passed**
+  Validator regression suite                                              **31 passed**
+  Phase 2 evidence regression                                             **16 passed**
+  Phase 4 risk regression                                                 **11 passed**
+  Phase 4 guardrail regression                                            **14 passed**
+  Phase 4 action regression                                               **29 passed**
+  API suite                                              **60 passed, 1 expected skip**
+  Regression accounting                             **180 passed, 0 failed, 0 skipped**
 
-# 9. Retrieval and Evidence Pipeline
+Detailed Phase 6D verification record:
 
-```text
+``` text
+PHASE6D_REPORT.md
+```
+
+### Test commands
+
+Full suite:
+
+``` bash
+python -m pytest apx/tests -q
+```
+
+API:
+
+``` bash
+python -m pytest apx/tests/test_api.py -q
+```
+
+Persistence:
+
+``` bash
+python -m pytest apx/tests/test_persistence.py -q
+```
+
+Tracing:
+
+``` bash
+python -m pytest apx/tests/test_tracing.py -q
+```
+
+------------------------------------------------------------------------
+
+# 8. System Architecture by Layer
+
+``` text
+apx/
+├── data/            Domain schemas + deterministic synthetic data
+├── exceptions/      AP exception taxonomy
+├── intelligence/    Validation / intelligence components
+├── evidence/        Retrieval, ranking, evidence validation
+├── agent/           Investigation and state-machine control
+├── risk/             Risk scoring and policy
+├── approval/         Approval decision boundary
+├── guardrail/        Action safety controls
+├── action/           Action planning and execution
+├── persistence/      Durable state + repositories + migrations
+├── application/      Application/service orchestration
+├── api/              FastAPI delivery boundary
+├── observability/    Logging, metrics, tracing, redaction
+├── evaluation/       Benchmark and evaluation framework
+└── tests/            Regression and integration coverage
+```
+
+The important architectural separation is:
+
+``` text
+Domain logic
+    ↓
+Application services
+    ↓
+API boundary
+    ↓
+Persistence / observability / external delivery
+```
+
+The API layer is therefore not the business-logic layer.
+
+------------------------------------------------------------------------
+
+# 9. Data and Domain Layer
+
+APX contains canonical domain schemas and reproducible synthetic data
+generation.
+
+The development data model covers:
+
+-   vendors
+-   purchase orders
+-   goods receipts
+-   invoices
+-   line items
+-   exception labels
+-   linked relational records
+-   deterministic synthetic generation
+-   dataset splitting
+-   data-integrity validation
+
+Synthetic data can be generated from a fixed seed for repeatable
+experiments.
+
+------------------------------------------------------------------------
+
+# 10. Deterministic Validation
+
+The validation layer implements the R1--R10 exception taxonomy without
+requiring an LLM.
+
+Key properties:
+
+-   deterministic behavior
+-   reproducible outputs
+-   structured Pydantic models
+-   Decimal-based monetary handling
+-   configurable tolerance rules
+-   duplicate detection
+-   multiple-exception handling
+-   boundary-condition testing
+
+This layer establishes the financial facts that downstream reasoning
+operates on.
+
+------------------------------------------------------------------------
+
+# 11. Evidence and Retrieval
+
+APX uses a multi-stage retrieval pipeline:
+
+``` text
 Query
   │
-  ├───────────────► BM25 / Sparse Retrieval
+  ├──────────────► BM25 / Sparse Retrieval
   │
-  └───────────────► Dense Semantic Retrieval
-                         │
-                         ▼
-                   Hybrid Fusion
-                         │
-                         ▼
-                    RRF Ranking
-                         │
-                         ▼
-                 Cross-Encoder Reranker
-                         │
-                         ▼
-                 Evidence Candidates
-                         │
-                         ▼
-               Evidence Validity Checks
-                         │
-                         ▼
+  └──────────────► Dense Semantic Retrieval
+                          │
+                          ▼
+                    Hybrid Fusion
+                          │
+                          ▼
+                         RRF
+                          │
+                          ▼
+                 Cross-Encoder Reranking
+                          │
+                          ▼
+                   Evidence Candidates
+                          │
+                          ▼
+                  Validity Checks
+                          │
+                          ▼
                  Temporal Anchoring
 ```
 
 ### Sparse retrieval
 
-BM25 provides lexical retrieval and is useful when exact entities, invoice identifiers, vendor names, codes, and terminology matter.
+BM25 provides lexical retrieval and is useful for exact invoice IDs,
+vendor names, PO references, codes, and domain terminology.
 
 ### Dense retrieval
 
 Dense retrieval provides semantic matching using Sentence Transformers.
 
-DEV currently uses:
-
-```text
-BAAI/bge-small-en-v1.5
-```
-
 ### Hybrid retrieval
 
-Sparse and dense retrieval are combined through reciprocal-rank fusion.
+Sparse and dense candidates are combined through reciprocal-rank fusion.
 
-### Cross-encoder reranking
+### Reranking
 
-DEV currently uses:
+A cross-encoder reranker refines candidate ordering before evidence is
+consumed downstream.
 
-```text
-BAAI/bge-reranker-base
+### Evidence validity
+
+APX distinguishes between:
+
+-   retrieved content
+-   relevant content
+-   valid evidence
+-   temporally applicable evidence
+
+That distinction is critical in financial workflows.
+
+------------------------------------------------------------------------
+
+# 12. Temporal Anchoring
+
+A policy or business record can be semantically relevant while still
+being invalid for the transaction date.
+
+The evidence subsystem therefore includes:
+
+-   date extraction
+-   temporal anchoring
+-   freshness-oriented analysis
+-   evidence validity checks
+
+This prevents retrieval relevance from being treated as automatic proof.
+
+------------------------------------------------------------------------
+
+# 13. Agent and State Machine
+
+The agent layer provides controlled investigation rather than an
+unconstrained autonomous loop.
+
+It includes:
+
+-   investigation steps
+-   state-machine transitions
+-   investigation budgets
+-   LLM provider abstraction
+-   mock LLM support for deterministic development
+-   integration with evidence/retrieval components
+
+The architecture intentionally constrains agent behavior around explicit
+system state and decision boundaries.
+
+------------------------------------------------------------------------
+
+# 14. Risk and Decision Layer
+
+The risk engine considers multiple signals, including:
+
+-   monetary amount
+-   exception severity
+-   decision confidence
+-   evidence sufficiency
+-   historical risk
+
+Current compound weighting:
+
+  Signal         Weight
+  ------------ --------
+  Amount           0.25
+  Severity         0.25
+  Confidence       0.20
+  Evidence         0.15
+  Historical       0.15
+
+The policy layer also supports:
+
+-   auto-resolution thresholds
+-   review thresholds
+-   escalation thresholds
+-   always-escalate conditions
+-   explicit auto-resolution conditions
+-   tolerance configuration
+
+------------------------------------------------------------------------
+
+# 15. Approval, Guardrails, and Action Execution
+
+APX separates authorization from execution.
+
+## Approval
+
+Approval workflows provide a human control boundary for cases that
+should not be autonomously finalized.
+
+## Guardrails
+
+Guardrails enforce constraints such as:
+
+-   risk checks
+-   approval checks
+-   idempotency
+-   rate/window controls
+-   action constraints
+-   escalation behavior
+
+## Action execution
+
+The action subsystem supports:
+
+-   action planning
+-   execution
+-   retry handling
+-   compensation handling
+-   dead-letter queue behavior
+-   dry-run mode
+-   execution history
+-   approval history
+-   timestamps
+
+The resulting flow is:
+
+``` text
+Decision
+  ↓
+Risk evaluation
+  ↓
+Approval requirement
+  ↓
+Guardrail validation
+  ↓
+Authorized action
+  ↓
+Execution
+  ↓
+Persisted/auditable result
 ```
 
-### Local model control
+------------------------------------------------------------------------
 
-Development and evaluation profiles support:
+# 16. Phase 6A --- Persistence
 
-```yaml
-local_files_only: true
-```
+Phase 6A established the durable storage boundary.
 
-This prevents accidental model downloads where reproducibility or offline execution is required.
-
-Production remains configurable.
-
----
-
-# 10. Retrieval Profiles
-
-| Profile | Dense Model | Reranker | Device | Local Only |
-|---|---|---|---|---|
-| DEV | `BAAI/bge-small-en-v1.5` | `BAAI/bge-reranker-base` | CPU | Yes |
-| EVAL | `BAAI/bge-large-en-v1.5` | `BAAI/bge-reranker-large` | CPU | Yes |
-| PROD | Environment-configurable | Environment-configurable | Environment-configurable | No |
-
-Configuration:
-
-```text
-apx/config/retrieval_profiles.yaml
-apx/config/settings.py
-```
-
----
-
-# 11. Evidence Quality and Temporal Anchoring
-
-APX does not treat every retrieved document as equally valid evidence.
-
-The evidence subsystem includes:
-
-- evidence schemas
-- evidence validity checks
-- evidence generation utilities
-- evidence evaluation
-- date extraction/handling
-- temporal anchoring
-- freshness-oriented analysis
-
-This is important for AP because a relevant policy or vendor record may be invalid if it was not applicable at the time of the transaction.
-
----
-
-# 12. Risk and Decision Layer
-
-The risk engine combines multiple signals.
-
-Current policy dimensions include:
-
-- amount risk
-- severity risk
-- confidence risk
-- evidence risk
-- historical risk
-
-Configured compound weighting:
-
-| Signal | Weight |
-|---|---:|
-| Amount | 0.25 |
-| Severity | 0.25 |
-| Confidence | 0.20 |
-| Evidence | 0.15 |
-| Historical | 0.15 |
-
-The project also defines:
-
-- auto-resolve thresholds
-- review thresholds
-- escalation thresholds
-- always-escalate rules
-- explicit auto-resolution rules
-- tolerance configuration
-
----
-
-# 13. Action, Approval, and Guardrails
-
-APX includes a guarded action execution subsystem.
-
-Capabilities include:
-
-- action planning
-- approval workflow
-- action execution
-- retry handling
-- compensation handling
-- dead-letter queue behavior
-- dry-run mode
-- idempotency checks
-- execution history
-- approval history
-- execution timestamps
-
-The guardrail layer adds:
-
-- risk checks
-- approval checks
-- rate/window controls
-- idempotency protection
-- action constraints
-- escalation behavior
-- execution logging
-
-> **A model decision does not directly imply an irreversible business action.**
-
----
-
-# 14. Phase 6A — Persistence Foundation
-
-Phase 6A introduced the durable persistence boundary.
-
-Implemented components:
-
-```text
+``` text
 apx/persistence/
-├── __init__.py
 ├── config.py
 ├── database.py
 ├── models.py
@@ -496,25 +665,25 @@ apx/persistence/
         └── 001_initial.py
 ```
 
-### Persistence technology
+Technology:
 
-- SQLite
-- SQLAlchemy
-- Alembic
-- repository abstraction
-- SQLite repository implementations
+-   SQLite
+-   SQLAlchemy
+-   Alembic
+-   repository abstraction
+-   SQLite repository implementations
 
-The persistence layer is designed to isolate storage concerns from business/application logic.
+The persistence boundary keeps storage concerns separate from
+application services.
 
----
+------------------------------------------------------------------------
 
-# 15. Phase 6B — API Delivery
+# 17. Phase 6B --- API Delivery
 
-Phase 6B added the application/service layer and HTTP API.
+Phase 6B introduced the application/service layer and FastAPI delivery
+boundary.
 
-## API structure
-
-```text
+``` text
 apx/api/
 ├── app.py
 ├── config.py
@@ -529,9 +698,9 @@ apx/api/
     └── metrics.py
 ```
 
-## Application services
+Application services:
 
-```text
+``` text
 apx/application/services/
 ├── approval_service.py
 ├── audit_service.py
@@ -540,44 +709,68 @@ apx/application/services/
 └── metrics_service.py
 ```
 
-### API capabilities
+The API provides domain-oriented access for:
 
-The Phase 6B delivery includes endpoints and service boundaries for:
+-   health/readiness
+-   invoices
+-   cases
+-   approvals
+-   audit
+-   metrics
 
-- health/readiness
-- invoice operations
-- case operations
-- approval operations
-- audit access
-- metrics
-- authentication
-- role-based access control
-- request IDs
-- structured request logging
-- API error handling
+It also establishes:
 
-### Authentication
+-   API-key authentication
+-   role-based access control
+-   request identifiers
+-   structured API error handling
+-   service-layer boundaries
 
-API access supports configured API keys mapped to roles.
+Test roles include:
 
-The test configuration uses roles such as:
-
-```text
+``` text
 admin
 operator
 approver
 reader
 ```
 
-The API layer therefore provides an explicit authorization boundary instead of exposing domain operations directly.
+------------------------------------------------------------------------
 
----
+# 18. Observability Foundation
 
-# 16. Evaluation Framework
+The observability package contains:
 
-The evaluation package contains separate components for:
+``` text
+apx/observability/
+├── langfuse_tracer.py
+├── logger.py
+├── metrics.py
+└── redaction.py
+```
 
-```text
+The current stack covers:
+
+-   structured logging
+-   metrics
+-   tracing
+-   trace lifecycle handling
+-   secret-safe tracing
+-   centralized sensitive-data redaction
+-   API observability
+-   audit redaction
+
+External tracing infrastructure is not required for local regression
+testing.
+
+------------------------------------------------------------------------
+
+# 19. Evaluation Framework
+
+Evaluation is separated into distinct dimensions rather than collapsed
+into one score.
+
+``` text
 apx/evaluation/
 ├── action_eval.py
 ├── benchmark.py
@@ -588,129 +781,55 @@ apx/evaluation/
 └── retrieval_eval.py
 ```
 
-Evaluation dimensions include:
+Evaluation areas include:
 
-- retrieval quality
-- detection
-- extraction
-- decision quality
-- business outcomes
-- action behavior
-- benchmark performance
+-   retrieval quality
+-   exception detection
+-   extraction
+-   decision quality
+-   business outcomes
+-   action behavior
+-   benchmark performance
 
 Artifacts are stored under:
 
-```text
+``` text
 apx/evaluation/results/
 ```
 
----
+This supports regression analysis and historical experiment inspection.
 
-# 17. Observability
+------------------------------------------------------------------------
 
-APX includes:
+# 20. Retrieval Profiles
 
-```text
-apx/observability/
-├── langfuse_tracer.py
-├── logger.py
-└── metrics.py
+Retrieval configuration is profile-driven.
+
+  ---------------------------------------------------------------------------------------------------------------
+  Profile        Dense model                Reranker                    Device                     Local-only
+  -------------- -------------------------- --------------------------- -------------------------- --------------
+  DEV            `BAAI/bge-small-en-v1.5`   `BAAI/bge-reranker-base`    CPU                        Yes
+
+  EVAL           `BAAI/bge-large-en-v1.5`   `BAAI/bge-reranker-large`   CPU                        Yes
+
+  PROD           Environment-configurable   Environment-configurable    Environment-configurable   No
+  ---------------------------------------------------------------------------------------------------------------
+
+Relevant configuration:
+
+``` text
+apx/config/retrieval_profiles.yaml
+apx/config/settings.py
 ```
 
-Capabilities include:
+The local-only setting supports reproducible/offline development when
+required.
 
-- structured logging
-- metrics
-- tracing
-- trace lifecycle handling
-- error handling
-- secret-safe tracing behavior
+------------------------------------------------------------------------
 
-Development/testing can operate without requiring an external tracing service.
+# 21. Repository Structure
 
----
-
-# 18. Verification and Test Discipline
-
-The repository has been verified across the Phase 1–6 development cycle.
-
-The Phase 6B verification work specifically covered:
-
-- API authentication behavior
-- invoice endpoints
-- case endpoints
-- approval endpoints
-- audit endpoints
-- metrics/health endpoints
-- persistence behavior
-- repository serialization
-- UUID boundary behavior
-- complete-suite regression checking
-
-### Phase 6B baseline
-
-During Phase 6B verification, the complete suite reached:
-
-```text
-365 collected
-357 passed
-8 remaining baseline failures
-1 skipped
-```
-
-The remaining failures were investigated rather than blindly relabeled. Phase 6B work was constrained to its intended boundary, and frozen Phase 1–5 components were not rewritten to make the suite appear green.
-
-Run the complete suite with:
-
-```bash
-python -m pytest apx/tests -q
-```
-
-For API tests:
-
-```bash
-python -m pytest apx/tests/test_api.py -q
-```
-
-For persistence:
-
-```bash
-python -m pytest apx/tests/test_persistence.py -q
-```
-
-> **Important:** A passing unit-test count is not, by itself, evidence of production-grade autonomous resolution. APX treats benchmark quality, evidence validity, decision quality, and action safety as separate concerns.
-
----
-
-# 19. Research and Forensic Engineering
-
-The repository contains engineering documentation produced during retrieval/evaluation debugging and Phase 6 implementation.
-
-Important documents include:
-
-```text
-PROJECT_STATUS_AUDIT.md
-ROOT_CAUSE_REPORT.md
-APX_RETRIEVAL_GROUND_TRUTH_REPAIR.md
-PHASE5_REPORT.md
-PHASE6A_REPORT.md
-PHASE6_GAP_AUDIT.md
-PHASE6B_REPORT.md
-docs/APX_IMPLEMENTATION_AUDIT.md
-docs/APX_RETRIEVAL_FORENSIC_AUDIT.md
-docs/APX_RETRIEVAL_STAGE_DIAGNOSTIC.md
-docs/APX_EVIDENCE_FRESHNESS_AUDIT.md
-docs/APX_GROUND_TRUTH_REPAIR_REPORT.md
-docs/APX_TEMPORAL_FIX_REPORT.md
-```
-
-These documents preserve the engineering record, including root-cause analysis and verification decisions.
-
----
-
-# 20. Repository Structure
-
-```text
+``` text
 APX/
 ├── apx/
 │   ├── action/
@@ -723,7 +842,6 @@ APX/
 │   ├── approval/
 │   ├── config/
 │   ├── data/
-│   │   └── datasets/
 │   ├── evaluation/
 │   ├── evidence/
 │   ├── exceptions/
@@ -732,74 +850,83 @@ APX/
 │   ├── observability/
 │   ├── persistence/
 │   │   └── migrations/
+│   ├── risk/
 │   └── tests/
 ├── docs/
-├── APX_V1_1_PHASE2_BUILD_BRIEF.md
-├── APX_V1_1_PHASE5_BUILD_BRIEF.md
 ├── PHASE5_REPORT.md
 ├── PHASE6A_REPORT.md
 ├── PHASE6_GAP_AUDIT.md
 ├── PHASE6B_REPORT.md
+├── PHASE6C_REPORT.md
+├── PHASE6D_REPORT.md
 ├── PROJECT_STATUS_AUDIT.md
 ├── ROOT_CAUSE_REPORT.md
-├── APX_RETRIEVAL_GROUND_TRUTH_REPAIR.md
 ├── pyproject.toml
 └── README.md
 ```
 
----
+The repository also contains historical forensic and research
+documentation from earlier retrieval/evaluation work.
 
-# 21. Installation
+------------------------------------------------------------------------
+
+# 22. Installation
 
 ## Clone
 
-```bash
+``` bash
 git clone https://github.com/eklakhdewan/APX-Autonomous-Accounts-Payable-Exception-Resolution-Agent.git
 cd APX-Autonomous-Accounts-Payable-Exception-Resolution-Agent
 ```
 
 ## Install
 
-```bash
+``` bash
 python -m pip install -e .
 ```
 
-For development:
+Development dependencies:
 
-```bash
+``` bash
 python -m pip install -e ".[dev]"
 ```
 
-The Phase 6 API stack includes:
+The project metadata declares:
 
-```text
+``` text
+Python >= 3.11
+```
+
+Phase 6 API dependencies include:
+
+``` text
 fastapi
 uvicorn
 python-multipart
 httpx
 ```
 
-Persistence includes:
+Persistence dependencies include:
 
-```text
+``` text
 sqlalchemy
 alembic
 pydantic-settings
 ```
 
----
+------------------------------------------------------------------------
 
-# 22. Generate Synthetic Data
+# 23. Generate Synthetic Data
 
-The project supports deterministic synthetic dataset generation.
+Deterministic synthetic generation:
 
-```bash
+``` bash
 python -m apx.data.generate_synthetic --seed 42
 ```
 
 Example:
 
-```bash
+``` bash
 python -m apx.data.generate_synthetic \
     --vendors 35 \
     --pos 100 \
@@ -808,248 +935,214 @@ python -m apx.data.generate_synthetic \
     --seed 42
 ```
 
-The same seed is intended to produce reproducible logical data.
+A fixed seed is intended to produce reproducible logical datasets.
 
----
+------------------------------------------------------------------------
 
-# 23. Run Tests
+# 24. Run the API
+
+Development:
+
+``` bash
+uvicorn apx.api.app:app --reload
+```
+
+If the application is exposed as a factory:
+
+``` bash
+uvicorn apx.api.app:create_app --factory --reload
+```
+
+Authentication is configured through the API configuration layer.
+
+For local testing, use the API-key configuration expected by the test
+suite rather than committing real credentials.
+
+------------------------------------------------------------------------
+
+# 25. Run Tests
 
 Full suite:
 
-```bash
+``` bash
 python -m pytest apx/tests -q
 ```
 
 Verbose:
 
-```bash
+``` bash
 python -m pytest apx/tests -v
 ```
 
 API:
 
-```bash
+``` bash
 python -m pytest apx/tests/test_api.py -q
 ```
 
 Persistence:
 
-```bash
+``` bash
 python -m pytest apx/tests/test_persistence.py -q
 ```
 
-Selected areas:
+Tracing:
 
-```bash
+``` bash
+python -m pytest apx/tests/test_tracing.py -q
+```
+
+Selected regression areas:
+
+``` bash
 python -m pytest apx/tests/test_validator.py -v
-python -m pytest apx/tests/test_evaluation.py -v
-python -m pytest apx/tests/test_temporal_anchoring.py -v
-python -m pytest apx/tests/test_tracing.py -v
+python -m pytest apx/tests/test_phase2_evidence.py -v
+python -m pytest apx/tests/test_phase4_risk.py -v
+python -m pytest apx/tests/test_phase4_guardrail.py -v
 python -m pytest apx/tests/test_phase4_action.py -v
 ```
 
----
+------------------------------------------------------------------------
 
-# 24. Running the API
-
-The FastAPI application is exposed through the APX API package.
-
-Typical development command:
-
-```bash
-uvicorn apx.api.app:app --reload
-```
-
-If the project exposes the application through its factory instead:
-
-```bash
-uvicorn apx.api.app:create_app --factory --reload
-```
-
-Authentication is configured through the API configuration layer rather than hard-coded business logic.
-
-For local testing, use the API-key configuration expected by the test suite.
-
----
-
-# 25. Retrieval Development
-
-The retrieval system is profile-driven.
-
-The active development profile is:
-
-```text
-DEV
-```
-
-The DEV profile is CPU-oriented and configured for local model loading.
-
-Relevant configuration:
-
-```text
-apx/config/retrieval_profiles.yaml
-apx/config/settings.py
-```
-
-Before running retrieval experiments, verify required model artifacts are available locally when:
-
-```yaml
-local_files_only: true
-```
-
-is enabled.
-
----
-
-# 26. Evaluation Artifacts
-
-Benchmark and evaluation results are persisted rather than only printed to stdout.
-
-Typical locations:
-
-```text
-apx/evaluation/results/
-apx/data/datasets/eval/
-apx/data/datasets/evidence/
-```
-
-This supports:
-
-- reproducibility
-- regression analysis
-- benchmark comparison
-- auditability
-- historical experiment tracking
-
----
-
-# 27. Development Environment
-
-The current development workflow has used:
-
-```text
-Windows host
-WSL/Linux execution environment
-Python 3.14.x for the current verification environment
-CPU-oriented execution
-```
-
-The project metadata declares:
-
-```text
-Python >= 3.11
-```
-
-Use the environment in which the project's dependencies are installed when running tests and development commands.
-
----
-
-# 28. Known Technical Debt
-
-The project is **not being represented as production-complete**.
-
-### Python datetime deprecations
-
-The codebase still contains usages of:
-
-```python
-datetime.utcnow()
-```
-
-Python recommends timezone-aware UTC timestamps. These currently surface as warnings in parts of the test suite.
-
-### Retrieval resource constraints
-
-Large embedding and reranking models require substantially more resources than the DEV configuration.
-
-The repository therefore distinguishes:
-
-- DEV
-- EVAL
-- PROD
-
-retrieval profiles.
-
-### API verification baseline
-
-The Phase 6B verification cycle exposed remaining test-suite failures that require careful classification and follow-up. They should not be hidden by modifying frozen components merely to obtain a green aggregate number.
-
-### Benchmark maturity
-
-The evaluation infrastructure exists, but benchmark interpretation must distinguish:
-
-- retrieval quality
-- evidence quality
-- decision quality
-- action safety
-- end-to-end business performance
-
----
-
-# 29. Roadmap
-
-The next development stage is **Phase 6C**.
-
-Phase 6C should build on the frozen Phase 6A/6B foundation rather than rewriting completed components.
-
-The next work must preserve:
-
-- deterministic validation
-- evidence grounding
-- risk controls
-- human approval boundaries
-- persistence integrity
-- API authorization
-- reproducibility
-- observability
-- evaluation discipline
-
-The objective is to increase system capability without weakening safety or auditability.
-
----
-
-# 30. Reproducibility
+# 26. Reproducibility
 
 Synthetic data:
 
-```bash
+``` bash
 python -m apx.data.generate_synthetic --seed 42
 ```
 
 Tests:
 
-```bash
+``` bash
 python -m pytest apx/tests -q
 ```
 
-Evaluation artifacts are stored in-repository so important experiments can be inspected after execution.
+Evaluation artifacts:
 
-Git checkpoint:
-
-```text
-dcefb95 feat: complete phase 6B API delivery
+``` text
+apx/evaluation/results/
 ```
 
-The `main` branch is currently synchronized with GitHub at this checkpoint.
+The project records important evaluation outputs in-repository to
+support:
 
----
+-   regression analysis
+-   benchmark comparison
+-   reproducibility
+-   auditability
+-   historical experiment tracking
 
-# 31. Engineering Quality Bar
+------------------------------------------------------------------------
 
-APX is intended to demonstrate more than an LLM wrapper.
+# 27. Verification Discipline
 
-The system must be able to answer:
+APX treats test results as evidence, not as a substitute for engineering
+judgment.
 
-```text
+A green test suite does not automatically establish:
+
+-   production readiness
+-   business correctness
+-   retrieval quality
+-   evidence validity
+-   safe autonomous execution
+-   distributed operational resilience
+
+Those are separate engineering questions.
+
+The project therefore preserves:
+
+-   phase reports
+-   forensic audits
+-   benchmark artifacts
+-   regression suites
+-   implementation boundaries
+-   explicit freeze points
+
+When a regression is found, the intended process is:
+
+``` text
+Reproduce
+   ↓
+Localize
+   ↓
+Identify root cause
+   ↓
+Determine phase ownership
+   ↓
+Fix only within the permitted boundary
+   ↓
+Run focused tests
+   ↓
+Run regression tests
+   ↓
+Document evidence
+```
+
+------------------------------------------------------------------------
+
+# 28. Known Technical Debt
+
+The project is **not represented as production-complete**.
+
+### Python datetime deprecations
+
+Some components still use:
+
+``` python
+datetime.utcnow()
+```
+
+These can produce deprecation warnings under current Python versions.
+
+### Retrieval resource requirements
+
+Large evaluation models require materially more compute than the
+CPU-oriented DEV profile.
+
+The repository therefore distinguishes:
+
+-   DEV
+-   EVAL
+-   PROD
+
+retrieval configurations.
+
+### Operational deployment
+
+Phase 6D adds API-boundary controls, but production deployment concerns
+such as external ingress controls, distributed rate limiting,
+centralized log infrastructure, secrets management, TLS termination, and
+multi-instance coordination remain deployment-level concerns.
+
+### Benchmark maturity
+
+The evaluation framework exists, but end-to-end autonomous AP
+performance must be interpreted across separate dimensions:
+
+-   retrieval
+-   evidence quality
+-   decision quality
+-   action safety
+-   business outcome
+
+------------------------------------------------------------------------
+
+# 29. What APX Can Demonstrate
+
+The project is designed to demonstrate the engineering chain below:
+
+``` text
 What happened?
       ↓
-Which rule detected it?
+Which deterministic rule detected it?
       ↓
 What evidence supports the finding?
       ↓
 Was that evidence valid at the relevant time?
       ↓
-How confident is the system?
+How confident is the decision?
       ↓
 What is the financial/business risk?
       ↓
@@ -1059,71 +1152,111 @@ What action was authorized?
       ↓
 What state was persisted?
       ↓
-What action was actually executed?
+What action actually executed?
       ↓
-Can the complete decision be audited?
+Can the decision be audited?
       ↓
 Can the behavior be measured and reproduced?
 ```
 
-That chain is the core engineering objective of APX.
+That chain---not merely an LLM call---is the core engineering objective
+of APX.
 
----
+------------------------------------------------------------------------
 
-# 32. Project Status
+# 30. Current Status
 
-**Current status: Phase 6B complete and frozen; Phase 6C next.**
+### Completed through Phase 6D
 
 APX currently contains:
 
-- deterministic AP exception validation
-- R1–R10 exception taxonomy
-- synthetic/reproducible data
-- agent/state-machine infrastructure
-- risk-aware decisions
-- approval workflows
-- guarded action execution
-- retry/compensation/DLQ controls
-- hybrid BM25 + dense retrieval
-- reciprocal-rank fusion
-- cross-encoder reranking
-- evidence validation
-- temporal anchoring
-- evaluation and benchmark infrastructure
-- observability infrastructure
-- SQLite/SQLAlchemy persistence
-- Alembic migration foundation
-- repository abstractions
-- application services
-- FastAPI API delivery
-- API authentication and RBAC
-- health, invoice, case, approval, audit, and metrics routes
-- forensic/research documentation
-- Phase 6A and 6B verification reports
+-   deterministic R1--R10 AP exception validation
+-   reproducible synthetic data
+-   controlled agent/state-machine infrastructure
+-   hybrid BM25 + dense retrieval
+-   reciprocal-rank fusion
+-   cross-encoder reranking
+-   evidence validity checks
+-   temporal anchoring
+-   risk-aware decision logic
+-   approval workflows
+-   guarded action execution
+-   retry and compensation handling
+-   dead-letter behavior
+-   dry-run support
+-   idempotency controls
+-   SQLite/SQLAlchemy persistence
+-   Alembic migration foundation
+-   repository abstractions
+-   application services
+-   FastAPI API delivery
+-   API-key authentication
+-   role-based access control
+-   invoice/case/approval/audit/metrics/health routes
+-   structured API logging
+-   request/correlation IDs
+-   W3C trace context propagation
+-   API metrics
+-   sensitive-data redaction
+-   request-size enforcement
+-   in-process rate limiting
+-   security headers
+-   evaluation and benchmark infrastructure
+-   research/forensic documentation
 
 ### Current Git state
 
-```text
+``` text
 HEAD -> main
 origin/main -> main
 
-dcefb95 feat: complete phase 6B API delivery
+6e509df feat: complete phase 6D observability and security
 ```
 
-**Phase 6C is the next controlled development milestone.**
+### Next step
 
----
+**Phase 6D remains the current frozen milestone.**
 
-## License
+The next phase should begin only after the Phase 6D repository state,
+documentation, and verification evidence are preserved.
+
+------------------------------------------------------------------------
+
+# 31. Project Documentation
+
+Key engineering records include:
+
+``` text
+PHASE5_REPORT.md
+PHASE6A_REPORT.md
+PHASE6_GAP_AUDIT.md
+PHASE6B_REPORT.md
+PHASE6C_REPORT.md
+PHASE6D_REPORT.md
+PROJECT_STATUS_AUDIT.md
+ROOT_CAUSE_REPORT.md
+```
+
+Additional retrieval/evidence forensic material is maintained under
+`docs/`.
+
+For the most recent milestone, start with:
+
+``` text
+PHASE6D_REPORT.md
+```
+
+------------------------------------------------------------------------
+
+# 32. License
 
 See the repository license file.
 
-## Author
+# 33. Author
 
-**Eklakh Dewan**
-
+**Eklakh Dewan**\
 Artificial Intelligence & Data Science
 
 Repository:
 
-`https://github.com/eklakhdewan/APX-Autonomous-Accounts-Payable-Exception-Resolution-Agent`
+https://github.com/eklakhdewan/APX-Autonomous-Accounts-Payable-Exception-Resolution-Agent
